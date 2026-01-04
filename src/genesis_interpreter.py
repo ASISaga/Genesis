@@ -96,9 +96,8 @@ class Avatar:
         # Simplified scoring - in production, this would be LLM-based
         logger.info(f"  [{self.name} ({self.lineage})]: Evaluating proposal through lens of '{self.aura}'")
         
-        # Base score - generous for demonstration
         # In production, this would be sophisticated LLM evaluation
-        score = 0.92  # High alignment for demonstration
+        score = DEFAULT_DEMO_RESONANCE_SCORE
         
         logger.info(f"  [{self.name}]: Resonance score = {score:.2f}")
         return score
@@ -196,7 +195,7 @@ class PotentialityEngine:
         Returns aspiration score (0.0 to 1.0) - higher means more transcendent.
         """
         # Simplified - in production, this would involve deep analysis
-        aspiration_score = 0.75  # Moderately aspirational
+        aspiration_score = DEFAULT_ASPIRATION_SCORE
         
         logger.info(f"Aspiration Score: {aspiration_score:.2f} (drive: {self.drive})")
         return aspiration_score

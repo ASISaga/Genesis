@@ -133,12 +133,15 @@ Genesis is currently in **active development** with:
 
 - [x] Core language specification
 - [x] Philosophical framework
-- [ ] Formal grammar definition (BNF/EBNF)
-- [ ] Reference parser implementation
-- [ ] AOS kernel integration
-- [ ] MCP vessel bindings
-- [ ] Example programs and tutorials
+- [x] Formal grammar definition (BNF/EBNF)
+- [x] Reference parser implementation
+- [x] Reference interpreter with resonance engine
+- [x] Example programs and tutorials
+- [ ] Full AOS kernel integration
+- [ ] LLM-based Avatar fine-tuning
+- [ ] Advanced MCP vessel bindings
 - [ ] Interactive REPL environment
+- [ ] IDE extensions and language server
 
 ## License
 
