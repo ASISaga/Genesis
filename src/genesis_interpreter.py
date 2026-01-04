@@ -43,6 +43,16 @@ except ImportError:
 
 
 # ============================================================================
+# CONSTANTS
+# ============================================================================
+
+# Default resonance scores for demonstration
+# In production, these would come from LLM-based evaluation
+DEFAULT_DEMO_RESONANCE_SCORE = 0.92  # High alignment for demonstration
+DEFAULT_ASPIRATION_SCORE = 0.75  # Moderately aspirational
+
+
+# ============================================================================
 # LOGGING SETUP
 # ============================================================================
 
@@ -325,7 +335,8 @@ class GenesisRuntime:
             avatars = []
             logger.info(f"Pantheon assembled: '{declaration.name}'")
             for avatar_decl in declaration.avatars:
-                # Use essence as aura if aura not specified (for compatibility)
+                # For compatibility: use essence as aura if aura not explicitly specified
+                # This allows both 'Aura' and 'Essence' keywords to work
                 aura_value = avatar_decl.properties.get('aura') or avatar_decl.properties.get('essence', 'Balanced')
                 avatar = Avatar(
                     name=avatar_decl.name,
