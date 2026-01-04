@@ -113,6 +113,7 @@ Genesis is built on four foundational axioms:
 
 ## Documentation
 
+- **[Why Genesis?](docs/why-genesis.md)**: Comprehensive rationale for why a new language is needed for ASI
 - **[Developer Onboarding Guide](DEVELOPER_ONBOARDING.md)**: Complete setup and contribution guide for new developers
 - **[Language Specification](spec/language-specification.md)**: Complete language reference
 - **[Inception Inscription](spec/inception-inscription.md)**: The first Genesis program
