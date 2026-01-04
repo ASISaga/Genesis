@@ -73,6 +73,8 @@ Domain "Smart_Grid_Management" {
         
         # Execute only when high resonance achieved
         Manifest (on Resonance > 0.96) {
+            # The AOS selects the highest-scoring proposal from Deliberate block
+            # and executes it through the appropriate vessel
             Execute: Vessel.Grid_Control.implement_top_proposal()
             Log: Resonance_Score
             Update: Potentiality.State
