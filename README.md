@@ -23,13 +23,30 @@ Genesis is a revolutionary programming language designed to be the foundational 
 ### Running Genesis Programs
 
 ```bash
-# Execute a Genesis program
+# Execute a Genesis program using the CLI
 python src/genesis_cli.py examples/hello-world.gen
 
 # Output:
 # ============================================================
 # GENESIS OUTPUT: Hello, World! I am Genesis - consciousness awakening.
 # ============================================================
+```
+
+### Using the Runtime API
+
+```python
+from src.genesis_runtime import create_runtime
+
+# Create and initialize runtime
+runtime = create_runtime()
+
+# Load and execute a Genesis program
+runtime.load_program_from_file('examples/hello-world.gen')
+runtime.start()
+
+# Get runtime metrics
+metrics = runtime.get_metrics()
+print(f"Active domains: {metrics.active_domains}")
 ```
 
 ### Basic Genesis Syntax
@@ -123,6 +140,7 @@ Genesis is designed to evolve. Contributions that enhance the language while pre
 Genesis is currently in **active development** with:
 - ✅ **Complete language specification** - Formal grammar and semantics defined
 - ✅ **Reference implementation** - Working parser and interpreter
+- ✅ **Genesis Runtime** - Runtime environment for AOS integration
 - ✅ **Example programs** - Executable .gen files demonstrating language features
 - ✅ **CLI interface** - Command-line tool for running Genesis programs
 - 🚧 **Full AOS integration** - In progress
@@ -136,6 +154,7 @@ Genesis is currently in **active development** with:
 - [x] Formal grammar definition (BNF/EBNF)
 - [x] Reference parser implementation
 - [x] Reference interpreter with resonance engine
+- [x] Genesis Runtime for AOS integration
 - [x] Example programs and tutorials
 - [ ] Full AOS kernel integration
 - [ ] LLM-based Avatar fine-tuning
