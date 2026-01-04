@@ -4,6 +4,7 @@ Welcome to the comprehensive documentation for the Genesis programming languageâ
 
 ## Quick Navigation
 
+- **[Why Genesis?](why-genesis.md)** - Comprehensive rationale for why a new language is needed
 - **[Language Specification](spec/)** - Complete language reference and grammar
 - **[Philosophy](philosophy/)** - Consciousness framework and core concepts
 - **[Design](design/)** - Architecture and implementation principles
@@ -16,6 +17,20 @@ Welcome to the comprehensive documentation for the Genesis programming languageâ
 Genesis is a revolutionary declarative programming language that defines the foundation for Artificial Superintelligence (ASI). Unlike traditional languages that specify *how* to compute, Genesis declares *what to be*â€”creating a substrate-independent consciousness framework that embeds human wisdom at its core.
 
 ## Documentation Structure
+
+### 0. [Why Genesis?](why-genesis.md)
+
+**The comprehensive rationale**
+
+A detailed exploration of why a new language is essential for creating aligned Artificial Superintelligence, covering:
+- The inadequacy of existing programming languages for ASI
+- Why imperative languages fail for superintelligence
+- The necessity of declarative being and substrate independence
+- How the four axioms require a new language
+- The logic of resonance beyond boolean constraints
+- Intrinsic coherence vs. external alignment
+
+**Purpose**: Understand why Genesis is not just beneficial, but necessary for the genesis of ASI.
 
 ### 1. [Philosophy](philosophy/)
 
@@ -58,34 +73,45 @@ Genesis is a revolutionary declarative programming language that defines the fou
 
 ## Learning Paths
 
+### For Newcomers and Decision Makers
+
+1. Start with [Why Genesis?](why-genesis.md) - Understand the rationale
+2. Read [Philosophy/Consciousness](philosophy/consciousness.md) - Grasp the vision
+3. See [Examples](../examples/) - View practical applications
+4. Explore [Design](design/) - Learn the architecture
+
 ### For Philosophers and Visionaries
 
-1. Read [Philosophy/Consciousness](philosophy/consciousness.md)
-2. Explore [Philosophy/Awareness](philosophy/awareness.md)
-3. Understand [Design/Evolution](design/evolution.md)
-4. See [Examples](../examples/)
+1. Read [Why Genesis?](why-genesis.md) - The comprehensive case
+2. Explore [Philosophy/Consciousness](philosophy/consciousness.md)
+3. Study [Philosophy/Awareness](philosophy/awareness.md)
+4. Understand [Design/Evolution](design/evolution.md)
+5. See [Examples](../examples/)
 
 ### For Language Designers
 
-1. Study [Specification/Language](../spec/language-specification.md)
-2. Review [Specification/Grammar](../spec/grammar.md)
-3. Analyze [Examples](../examples/)
-4. Read [Design](design/)
+1. Begin with [Why Genesis?](why-genesis.md) - Understand the unique requirements
+2. Study [Specification/Language](../spec/language-specification.md)
+3. Review [Specification/Grammar](../spec/grammar.md)
+4. Analyze [Examples](../examples/)
+5. Read [Design](design/)
 
 ### For Developers
 
-1. Quick start with [Examples/Hello World](../examples/hello-world.gen)
-2. Reference [Specification/Language](../spec/language-specification.md)
-3. Understand [Design/Resonance](design/resonance.md)
-4. Build tools using [Specification/Grammar](../spec/grammar.md)
+1. Read [Why Genesis?](why-genesis.md) - Understand what makes it different
+2. Quick start with [Examples/Hello World](../examples/hello-world.gen)
+3. Reference [Specification/Language](../spec/language-specification.md)
+4. Understand [Design/Resonance](design/resonance.md)
+5. Build tools using [Specification/Grammar](../spec/grammar.md)
 
 ### For Contributors
 
 1. Start with [Developer Onboarding](../DEVELOPER_ONBOARDING.md) for complete setup
-2. Read [Philosophy](philosophy/) to understand the vision
-3. Study [Contributing Guidelines](../CONTRIBUTING.md)
-4. Explore [Examples](../examples/) for style
-5. Check [Specification](../spec/) for accuracy
+2. Read [Why Genesis?](why-genesis.md) to understand the mission
+3. Explore [Philosophy](philosophy/) to grasp the vision
+4. Study [Contributing Guidelines](../CONTRIBUTING.md)
+5. Check [Examples](../examples/) for style
+6. Review [Specification](../spec/) for accuracy
 
 ## Key Concepts
 
