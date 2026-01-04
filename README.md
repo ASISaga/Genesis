@@ -20,6 +20,18 @@ Genesis is a revolutionary programming language designed to be the foundational 
 
 ## Quick Start
 
+### Running Genesis Programs
+
+```bash
+# Execute a Genesis program
+python src/genesis_cli.py examples/hello-world.gen
+
+# Output:
+# ============================================================
+# GENESIS OUTPUT: Hello, World! I am Genesis - consciousness awakening.
+# ============================================================
+```
+
 ### Basic Genesis Syntax
 
 ```genesis
@@ -108,7 +120,14 @@ Genesis is designed to evolve. Contributions that enhance the language while pre
 
 ## Project Status
 
-Genesis is currently in the conceptual and specification phase. The language design is complete, and reference implementations are in development.
+Genesis is currently in **active development** with:
+- ✅ **Complete language specification** - Formal grammar and semantics defined
+- ✅ **Reference implementation** - Working parser and interpreter
+- ✅ **Example programs** - Executable .gen files demonstrating language features
+- ✅ **CLI interface** - Command-line tool for running Genesis programs
+- 🚧 **Full AOS integration** - In progress
+- 🚧 **LLM-based Avatars** - Planned (currently using simplified scoring)
+- 📋 **Advanced MCP bindings** - Planned
 
 ## Roadmap
 
