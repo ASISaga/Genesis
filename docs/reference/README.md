@@ -14,8 +14,8 @@ Complete reference documentation for the Genesis programming language, designed 
 
 ### Language Elements
 - **[Syntax](syntax.md)** - Keywords, identifiers, literals, and operators
-- **[Expressions](expressions.md)** - Value expressions and computations
-- **[MCP Integration](mcp-integration.md)** - Vessel bindings and tool calls
+- **[Quick Reference](quick-reference.md)** - Cheat sheet for common patterns
+- **[Best Practices](best-practices.md)** - Idiomatic Genesis patterns
 
 ### Guides
 - **[Quick Reference](quick-reference.md)** - Cheat sheet for common patterns
