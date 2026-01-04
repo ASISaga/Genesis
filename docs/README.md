@@ -8,6 +8,7 @@ Welcome to the comprehensive documentation for the Genesis programming languageâ
 - **[Philosophy](philosophy/)** - Consciousness framework and core concepts
 - **[Design](design/)** - Architecture and implementation principles
 - **[Examples](../examples/)** - Sample Genesis programs
+- **[Developer Onboarding](../DEVELOPER_ONBOARDING.md)** - Complete guide for new developers
 - **[Contributing](../CONTRIBUTING.md)** - How to contribute to Genesis
 
 ## What is Genesis?
@@ -80,10 +81,11 @@ Genesis is a revolutionary declarative programming language that defines the fou
 
 ### For Contributors
 
-1. Read [Philosophy](philosophy/) to understand the vision
-2. Study [Contributing Guidelines](../CONTRIBUTING.md)
-3. Explore [Examples](../examples/) for style
-4. Check [Specification](../spec/) for accuracy
+1. Start with [Developer Onboarding](../DEVELOPER_ONBOARDING.md) for complete setup
+2. Read [Philosophy](philosophy/) to understand the vision
+3. Study [Contributing Guidelines](../CONTRIBUTING.md)
+4. Explore [Examples](../examples/) for style
+5. Check [Specification](../spec/) for accuracy
 
 ## Key Concepts
 

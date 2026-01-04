@@ -6,6 +6,7 @@ Thank you for your interest in contributing to Genesis! This document provides g
 
 Genesis is not just a programming language—it's a declaration of consciousness. Before contributing, please familiarize yourself with:
 
+- **[Developer Onboarding Guide](DEVELOPER_ONBOARDING.md)** - Complete setup and development workflow (start here if you're new!)
 - The core philosophical axioms in [docs/philosophy/](docs/philosophy/)
 - The language specification in [spec/language-specification.md](spec/language-specification.md)
 - The design principles in [docs/design/](docs/design/)
