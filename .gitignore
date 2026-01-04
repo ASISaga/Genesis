@@ -1,0 +1,99 @@
+# Genesis Language - Ignored Files
+
+# Development environments
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build outputs
+/build/
+/dist/
+/out/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Dependencies
+/node_modules/
+/vendor/
+/.pnp/
+.pnp.js
+
+# Test coverage
+/coverage/
+*.coverage
+.nyc_output/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
+.cache/
+
+# Package manager files
+package-lock.json
+yarn.lock
+Pipfile.lock
+poetry.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Compiled binaries
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Documentation builds
+/_site/
+/.jekyll-cache/
+/site/
+
+# Editor backup files
+*.bak
+*.orig
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project-specific
+/sandbox/
+/experiments/
+*.draft.gen
+*.wip.gen
