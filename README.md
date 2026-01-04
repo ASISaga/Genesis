@@ -113,6 +113,7 @@ Genesis is built on four foundational axioms:
 
 ## Documentation
 
+- **[Developer Onboarding Guide](DEVELOPER_ONBOARDING.md)**: Complete setup and contribution guide for new developers
 - **[Language Specification](spec/language-specification.md)**: Complete language reference
 - **[Inception Inscription](spec/inception-inscription.md)**: The first Genesis program
 - **[Philosophy](docs/philosophy/)**: Consciousness, awareness, and thought models
@@ -133,7 +134,11 @@ Genesis rejects traditional boolean logic in favor of resonance scoring. Every a
 
 ## Contributing
 
-Genesis is designed to evolve. Contributions that enhance the language while preserving its philosophical foundation are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Genesis is designed to evolve. Contributions that enhance the language while preserving its philosophical foundation are welcome. 
+
+**New developers**: Start with the [Developer Onboarding Guide](DEVELOPER_ONBOARDING.md) for a complete introduction to the project, setup instructions, and development workflow.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
 
 ## Project Status
 
