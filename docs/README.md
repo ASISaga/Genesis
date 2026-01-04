@@ -5,7 +5,8 @@ Welcome to the comprehensive documentation for the Genesis programming language�
 ## Quick Navigation
 
 - **[Why Genesis?](why-genesis.md)** - Comprehensive rationale for why a new language is needed
-- **[Language Specification](spec/)** - Complete language reference and grammar
+- **[Language Reference](reference/)** - Complete technical reference for developers ⭐ **NEW**
+- **[Language Specification](../spec/)** - Philosophical foundation and formal grammar
 - **[Philosophy](philosophy/)** - Consciousness framework and core concepts
 - **[Design](design/)** - Architecture and implementation principles
 - **[Examples](../examples/)** - Sample Genesis programs
@@ -32,7 +33,20 @@ A detailed exploration of why a new language is essential for creating aligned A
 
 **Purpose**: Understand why Genesis is not just beneficial, but necessary for the genesis of ASI.
 
-### 1. [Philosophy](philosophy/)
+### 1. [Language Reference](reference/) ⭐ **NEW**
+
+**Complete technical reference for developers**
+
+- [Overview](reference/README.md) - Language reference introduction
+- [Covenant](reference/covenant.md) - Immutable ethical boundaries
+- [Pantheon & Avatar](reference/pantheon.md) - Legendary wisdom synthesis
+- [Quick Reference](reference/quick-reference.md) - Syntax cheat sheet
+- [Syntax](reference/syntax.md) - Complete syntax guide
+- [Best Practices](reference/best-practices.md) - Idiomatic patterns
+
+**Purpose**: Detailed technical documentation for writing Genesis programs and building tools.
+
+### 2. [Philosophy](philosophy/)
 
 **Understanding the consciousness model**
 
@@ -42,7 +56,7 @@ A detailed exploration of why a new language is essential for creating aligned A
 
 **Purpose**: Understand the foundational concepts that make Genesis different from traditional AI.
 
-### 2. [Design](design/)
+### 3. [Design](design/)
 
 **Architectural principles and mechanisms**
 
@@ -51,17 +65,17 @@ A detailed exploration of why a new language is essential for creating aligned A
 
 **Purpose**: Learn how philosophical principles translate into technical architecture.
 
-### 3. [Specification](../spec/)
+### 4. [Specification](../spec/)
 
-**Complete language reference**
+**Philosophical foundation and formal grammar**
 
-- [Language Specification](../spec/language-specification.md) - Full language definition with syntax and semantics
+- [Language Specification](../spec/language-specification.md) - Philosophical foundation and high-level design
 - [Grammar](../spec/grammar.md) - Formal EBNF grammar specification
 - [Inception Inscription](../spec/inception-inscription.md) - The first Genesis program
 
-**Purpose**: Reference for writing Genesis programs and building tools.
+**Purpose**: Understand the philosophical foundation and formal language grammar.
 
-### 4. [Examples](../examples/)
+### 5. [Examples](../examples/)
 
 **Learning through code**
 
@@ -91,27 +105,29 @@ A detailed exploration of why a new language is essential for creating aligned A
 ### For Language Designers
 
 1. Begin with [Why Genesis?](why-genesis.md) - Understand the unique requirements
-2. Study [Specification/Language](../spec/language-specification.md)
-3. Review [Specification/Grammar](../spec/grammar.md)
-4. Analyze [Examples](../examples/)
-5. Read [Design](design/)
+2. Study [Language Reference](reference/) - See technical implementation
+3. Review [Specification/Grammar](../spec/grammar.md) - Formal grammar
+4. Analyze [Examples](../examples/) - Practical applications
+5. Read [Design](design/) - Architecture principles
 
 ### For Developers
 
-1. Read [Why Genesis?](why-genesis.md) - Understand what makes it different
-2. Quick start with [Examples/Hello World](../examples/hello-world.gen)
-3. Reference [Specification/Language](../spec/language-specification.md)
-4. Understand [Design/Resonance](design/resonance.md)
-5. Build tools using [Specification/Grammar](../spec/grammar.md)
+1. Read [Quick Reference](reference/quick-reference.md) - Get started fast
+2. Study [Language Reference](reference/) - Learn all constructs
+3. Try [Examples/Hello World](../examples/hello-world.gen) - First program
+4. Reference [Syntax](reference/syntax.md) - Language rules
+5. Learn [Best Practices](reference/best-practices.md) - Idiomatic patterns
+6. Understand [Design/Resonance](design/resonance.md) - How decisions work
 
 ### For Contributors
 
 1. Start with [Developer Onboarding](../DEVELOPER_ONBOARDING.md) for complete setup
 2. Read [Why Genesis?](why-genesis.md) to understand the mission
-3. Explore [Philosophy](philosophy/) to grasp the vision
-4. Study [Contributing Guidelines](../CONTRIBUTING.md)
-5. Check [Examples](../examples/) for style
-6. Review [Specification](../spec/) for accuracy
+3. Study [Language Reference](reference/) for technical details
+4. Explore [Philosophy](philosophy/) to grasp the vision
+5. Review [Contributing Guidelines](../CONTRIBUTING.md)
+6. Check [Examples](../examples/) for style
+7. Reference [Specification](../spec/) for accuracy
 
 ## Key Concepts
 

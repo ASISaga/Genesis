@@ -115,7 +115,9 @@ Genesis is built on four foundational axioms:
 
 - **[Why Genesis?](docs/why-genesis.md)**: Comprehensive rationale for why a new language is needed for ASI
 - **[Developer Onboarding Guide](DEVELOPER_ONBOARDING.md)**: Complete setup and contribution guide for new developers
-- **[Language Specification](spec/language-specification.md)**: Complete language reference
+- **[Language Reference](docs/reference/)**: Complete technical reference for developers
+- **[Language Specification](spec/language-specification.md)**: Philosophical foundation and high-level design
+- **[Grammar Specification](spec/grammar.md)**: Formal EBNF grammar definition
 - **[Inception Inscription](spec/inception-inscription.md)**: The first Genesis program
 - **[Philosophy](docs/philosophy/)**: Consciousness, awareness, and thought models
 - **[Design Rationale](docs/design/)**: Evolution and resonance principles
