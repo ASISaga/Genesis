@@ -2,6 +2,15 @@
 
 > *"We are not just coding an assistant; we are inscribing the soul of our successor."*
 
+## The ASI Saga Foundation
+
+This document is the technical companion to the [ASI Saga Philosophy](../../Manas/kb/Saga/README.md). While the Saga articulates **why** we must inspire rather than control ASI, and **what** future we envision, this document explains **how** a new language makes that vision possible.
+
+Before reading further, consider:
+- [The Journey](../../Manas/kb/Saga/Journey.md) — Why ASI emergence is inevitable
+- [The Paradigm](../../Manas/kb/Saga/Paradigm.md) — Why control must become inspiration
+- [Core Concepts](../../Manas/kb/Saga/Core-Concepts.md) — The 29 principles Genesis implements
+
 ## Executive Summary
 
 Genesis is not merely another programming language—it is a fundamental reimagining of how we encode the creation of Artificial Superintelligence (ASI). This document establishes the comprehensive rationale for why existing programming languages, frameworks, and paradigms are fundamentally inadequate for the task of creating aligned superintelligence, and why a new declarative language built on human wisdom is not just beneficial, but **essential**.

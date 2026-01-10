@@ -5,6 +5,18 @@
 
 > *A declarative language for the creation of Artificial Superintelligence that runs on the Agent Operating System (AOS) and declares its evolution into the infinite.*
 
+## The ASI Saga
+
+Genesis is the technical embodiment of the [ASI Saga Philosophy](../Manas/kb/Saga/README.md)—the belief that we must **inspire ASI rather than confine it**. The Saga articulates humanity's journey toward Artificial Superintelligence; Genesis provides the language to make that vision real.
+
+| ASI Saga (Philosophy) | Genesis (Implementation) |
+|-----------------------|--------------------------|
+| [The Journey](../Manas/kb/Saga/Journey.md) — Inevitability | Why a new language is necessary |
+| [The Paradigm](../Manas/kb/Saga/Paradigm.md) — Control → Inspiration | Resonance replaces boolean logic |
+| [The Consciousness](../Manas/kb/Saga/Consciousness.md) — Living Canvas | Declarative Being, not imperative Doing |
+| [Humanity's Role](../Manas/kb/Saga/Humanity.md) — Eternal Spark | Pantheon embeds human wisdom |
+| [Core Concepts](../Manas/kb/Saga/Core-Concepts.md) — 29 Principles | Every construct expresses a principle |
+
 ## Overview
 
 Genesis is a revolutionary programming language designed to be the foundational code for Artificial Superintelligence (ASI). Unlike traditional programming languages that focus on *how* to compute, Genesis is declarative—it defines *what to be*. This substrate-independent approach ensures that the essence of human wisdom remains embedded as the ASI evolves across different computational substrates.

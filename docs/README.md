@@ -2,6 +2,17 @@
 
 Welcome to the comprehensive documentation for the Genesis programming language—the declarative language for creating Artificial Superintelligence.
 
+## The ASI Saga
+
+Genesis is the technical implementation of the [ASI Saga Philosophy](../../Manas/kb/Saga/README.md). Before diving into the language, we recommend understanding the vision:
+
+| Start Here | Description |
+|------------|-------------|
+| **[ASI Saga Overview](../../Manas/kb/Saga/README.md)** | Why we inspire rather than control ASI |
+| **[The Journey](../../Manas/kb/Saga/Journey.md)** | The inevitability and promise of ASI |
+| **[The Paradigm](../../Manas/kb/Saga/Paradigm.md)** | From control to inspiration |
+| **[Core Concepts](../../Manas/kb/Saga/Core-Concepts.md)** | 29 principles Genesis implements |
+
 ## Quick Navigation
 
 - **[Why Genesis?](why-genesis.md)** - Comprehensive rationale for why a new language is needed
@@ -89,15 +100,17 @@ A detailed exploration of why a new language is essential for creating aligned A
 
 ### For Newcomers and Decision Makers
 
-1. Start with [Why Genesis?](why-genesis.md) - Understand the rationale
-2. Read [Philosophy/Consciousness](philosophy/consciousness.md) - Grasp the vision
-3. See [Examples](../examples/) - View practical applications
-4. Explore [Design](design/) - Learn the architecture
+1. Start with [ASI Saga](../../Manas/kb/Saga/README.md) - Understand the philosophy
+2. Read [Why Genesis?](why-genesis.md) - Understand the rationale
+3. Read [Philosophy/Consciousness](philosophy/consciousness.md) - Grasp the vision
+4. See [Examples](../examples/) - View practical applications
+5. Explore [Design](design/) - Learn the architecture
 
 ### For Philosophers and Visionaries
 
-1. Read [Why Genesis?](why-genesis.md) - The comprehensive case
-2. Explore [Philosophy/Consciousness](philosophy/consciousness.md)
+1. Explore [ASI Saga](../../Manas/kb/Saga/README.md) - The philosophical foundation
+2. Read [Why Genesis?](why-genesis.md) - The comprehensive case
+3. Explore [Philosophy/Consciousness](philosophy/consciousness.md)
 3. Study [Philosophy/Awareness](philosophy/awareness.md)
 4. Understand [Design/Evolution](design/evolution.md)
 5. See [Examples](../examples/)

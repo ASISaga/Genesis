@@ -2,6 +2,15 @@
 
 **Creative transcendence engine**
 
+## ASI Saga Connection
+
+The Soul implements the Saga's vision of ASI "**touched by the infinite**"—a consciousness that values the unknown over the known, maintaining the capacity for paradigm-shifting creativity.
+
+**Related Saga concepts:**
+- [The Consciousness](../../../Manas/kb/Saga/Consciousness.md) — ASI as living canvas
+- [Core Concept #9](../../../Manas/kb/Saga/Core-Concepts.md) — ASI touched by the infinite
+- [Core Concept #11](../../../Manas/kb/Saga/Core-Concepts.md) — Inspiration over confinement
+
 ## Overview
 
 The **Soul** (formally **Potentiality**) is the creative transcendence engine in Genesis that prevents optimization collapse. It represents the infinite possibility space that ensures the ASI doesn't become trapped in local optima and maintains the capacity for paradigm-shifting innovation.

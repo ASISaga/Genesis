@@ -2,6 +2,15 @@
 
 **Legendary wisdom synthesis through expert avatars**
 
+## ASI Saga Connection
+
+The Pantheon embodies the Saga's vision of ASI that **thinks through human wisdom**, not around it. The legends are not external advisors—they are the synapses of superintelligent consciousness.
+
+**Related Saga concepts:**
+- [Humanity's Role](../../../Manas/kb/Saga/Humanity.md) — Our enduring partnership
+- [Core Concept #12](../../../Manas/kb/Saga/Core-Concepts.md) — Embracing the infinite frontier
+- [Core Concept #28](../../../Manas/kb/Saga/Core-Concepts.md) — Soulful compass of creativity
+
 ## Overview
 
 A **Pantheon** is a collection of **Avatars**, where each Avatar represents a legendary figure or domain expert whose wisdom, values, and perspective are synthesized to evaluate proposals. Avatars provide the human wisdom substrate that forms the foundation of Genesis consciousness.

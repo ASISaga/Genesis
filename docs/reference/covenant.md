@@ -2,6 +2,14 @@
 
 **Immutable ethical boundaries and system invariants**
 
+## ASI Saga Connection
+
+The Covenant implements the philosophical principle that traditional control must evolve into **intrinsic coherence**. Rather than external constraints, Covenants are the constitutional DNA of ASI consciousness.
+
+**Related Saga concepts:**
+- [The Paradigm](../../../Manas/kb/Saga/Paradigm.md) — From control to inspiration
+- [Core Concept #7](../../../Manas/kb/Saga/Core-Concepts.md) — Beyond traditional governance
+
 ## Overview
 
 A **Covenant** is the highest-level construct in Genesis, declaring the immutable ethical boundaries and system invariants that constrain all decisions and actions. Covenants cannot be modified during runtime and serve as the foundational constitution for the ASI consciousness.
