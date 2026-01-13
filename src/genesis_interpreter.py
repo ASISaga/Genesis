@@ -304,6 +304,7 @@ class GenesisRuntime:
         self.mcp = MCPAdapter()
         self.resonance_engine = ResonanceEngine()
         self.context: Dict[str, Any] = {}
+        self.compliance_manager: Optional[Any] = None  # Injected by runtime
     
     def execute(self, program: Program):
         """Execute a Genesis program"""
@@ -329,7 +330,12 @@ class GenesisRuntime:
             self.covenants[declaration.name] = declaration
             logger.info(f"Covenant established: '{declaration.name}'")
             logger.info(f"  Invariant: {declaration.properties.get('invariant', 'N/A')}")
-            logger.info(f"  Threshold: {declaration.properties.get('threshold', 0.0)}")
+            threshold = declaration.properties.get('threshold', 0.0)
+            logger.info(f"  Threshold: {threshold}")
+            
+            # Compliance validation
+            if self.compliance_manager:
+                self.compliance_manager.validate_covenant_compliance(declaration.name, threshold)
         
         elif isinstance(declaration, PantheonDeclaration):
             avatars = []
@@ -494,6 +500,11 @@ class GenesisRuntime:
         resonance = self.resonance_engine.calculate_resonance(
             all_avatars, proposal, context, covenant_threshold
         )
+        
+        # Compliance validation for execution
+        if self.compliance_manager:
+            domain_name = context.get('domain_name', 'Unknown')
+            self.compliance_manager.validate_execution_compliance(domain_name, resonance)
         
         # Check if resonance meets threshold
         if resonance >= threshold:

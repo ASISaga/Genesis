@@ -41,9 +41,11 @@ from pathlib import Path
 try:
     from .genesis_parser import Lexer, Parser, Program
     from .genesis_interpreter import GenesisRuntime as GenesisInterpreter
+    from .compliance import ComplianceManager, AISystemCategory
 except ImportError:
     from genesis_parser import Lexer, Parser, Program
     from genesis_interpreter import GenesisRuntime as GenesisInterpreter
+    from compliance import ComplianceManager, AISystemCategory
 
 
 # ============================================================================
@@ -84,6 +86,12 @@ class RuntimeConfig:
     sandbox_mode: bool = False
     covenant_enforcement: bool = True
     max_execution_depth: int = 100
+    
+    # Compliance (ISO 42001 & NIST AI RMF)
+    enable_iso42001: bool = True
+    enable_nist_rmf: bool = True
+    compliance_logging: bool = True
+    ai_system_category: str = "HIGH_RISK"  # MINIMAL_RISK, LIMITED_RISK, HIGH_RISK, UNACCEPTABLE_RISK
 
 
 # ============================================================================
@@ -172,6 +180,9 @@ class GenesisRuntime:
         self.programs: Dict[str, Program] = {}
         self.interpreters: Dict[str, GenesisInterpreter] = {}
         
+        # Compliance management
+        self.compliance_manager: Optional[ComplianceManager] = None
+        
         # Runtime state
         self.active_program_id: Optional[str] = None
         self.error_state: Optional[str] = None
@@ -217,6 +228,9 @@ class GenesisRuntime:
         try:
             self.state = RuntimeState.INITIALIZING
             
+            # Initialize compliance framework
+            self._initialize_compliance()
+            
             # Initialize MCP connections
             self._initialize_mcp_servers()
             
@@ -236,6 +250,87 @@ class GenesisRuntime:
             self.error_state = str(e)
             self.logger.error(f"Runtime initialization failed: {e}")
             return False
+    
+    def _initialize_compliance(self):
+        """Initialize compliance framework for ISO 42001 and NIST AI RMF"""
+        if self.config.enable_iso42001 or self.config.enable_nist_rmf:
+            self.logger.info("Initializing compliance framework...")
+            
+            # Create compliance manager
+            self.compliance_manager = ComplianceManager(
+                enable_iso42001=self.config.enable_iso42001,
+                enable_nist_rmf=self.config.enable_nist_rmf
+            )
+            
+            # Categorize the AI system
+            try:
+                category = AISystemCategory[self.config.ai_system_category]
+                self.compliance_manager.categorize_system(category)
+            except KeyError:
+                self.logger.warning(f"Invalid AI system category: {self.config.ai_system_category}")
+                self.compliance_manager.categorize_system(AISystemCategory.HIGH_RISK)
+            
+            # Enable core compliance features
+            self.compliance_manager.enable_monitoring()
+            self.compliance_manager.enable_audit_trail()
+            self.compliance_manager.enable_transparency()
+            self.compliance_manager.enable_documentation()
+            
+            # Establish baseline policies
+            self.compliance_manager.establish_policy(
+                "Covenant-Based Governance",
+                "All actions must achieve resonance threshold through Pantheon consensus"
+            )
+            
+            # Identify baseline risks
+            try:
+                from .compliance import RiskCategory, RiskLevel
+            except ImportError:
+                from compliance import RiskCategory, RiskLevel
+            
+            # Add context documentation (NIST MAP)
+            self.compliance_manager.nist_rmf.context_documentation.add(
+                "Genesis ASI system with Covenant-based governance"
+            )
+            self.compliance_manager.nist_rmf.context_documentation.add(
+                "Resonance-based decision making with Pantheon consensus"
+            )
+            
+            self.compliance_manager.identify_risk(
+                "ASI_ALIGNMENT",
+                RiskCategory.HUMAN_RIGHTS,
+                "Risk of ASI misalignment with human values"
+            )
+            
+            self.compliance_manager.identify_risk(
+                "AUTONOMOUS_ACTIONS",
+                RiskCategory.INFORMATION_SECURITY,
+                "Risk from autonomous decision-making"
+            )
+            
+            # Measure risks
+            self.compliance_manager.measure_risk("ASI_ALIGNMENT", RiskLevel.HIGH)
+            self.compliance_manager.measure_risk("AUTONOMOUS_ACTIONS", RiskLevel.MEDIUM)
+            
+            # Create mitigation plans
+            self.compliance_manager.create_mitigation_plan(
+                "ASI_ALIGNMENT",
+                "Covenant enforcement with high threshold (>0.95) and Pantheon wisdom synthesis"
+            )
+            
+            self.compliance_manager.create_mitigation_plan(
+                "AUTONOMOUS_ACTIONS",
+                "Resonance-based gating requiring multi-avatar consensus"
+            )
+            
+            # Finalize compliance setup
+            self.compliance_manager.complete_risk_assessment()
+            self.compliance_manager.set_benchmarks()
+            self.compliance_manager.enable_incident_response()
+            
+            self.logger.info("✓ Compliance framework initialized")
+        else:
+            self.logger.info("Compliance framework disabled")
     
     def _initialize_mcp_servers(self):
         """Initialize connections to MCP servers"""
@@ -277,8 +372,10 @@ class GenesisRuntime:
             # Store the program
             self.programs[program_id] = ast
             
-            # Create an interpreter instance
+            # Create an interpreter instance and inject compliance manager
             interpreter = GenesisInterpreter()
+            if self.compliance_manager:
+                interpreter.compliance_manager = self.compliance_manager
             self.interpreters[program_id] = interpreter
             
             self.logger.info(f"Program '{program_id}' loaded successfully")
@@ -417,6 +514,10 @@ class GenesisRuntime:
         try:
             self.state = RuntimeState.STOPPING
             
+            # Print compliance report if enabled
+            if self.compliance_manager and self.config.compliance_logging:
+                self.compliance_manager.print_compliance_report()
+            
             # Save persistent state if enabled
             if self.config.state_persistence:
                 self._save_persistent_state()
@@ -478,7 +579,7 @@ class GenesisRuntime:
         Returns:
             Dictionary containing runtime state, config, and metrics
         """
-        return {
+        info = {
             "runtime_id": self.config.runtime_id,
             "version": self.config.version,
             "state": self.state.value,
@@ -493,6 +594,23 @@ class GenesisRuntime:
             },
             "error": self.error_state if self.state == RuntimeState.ERROR else None
         }
+        
+        # Add compliance information if enabled
+        if self.compliance_manager:
+            info["compliance"] = self.compliance_manager.get_compliance_report()
+        
+        return info
+    
+    def get_compliance_report(self) -> Optional[Dict[str, Any]]:
+        """
+        Get compliance report.
+        
+        Returns:
+            Compliance report dictionary or None if compliance disabled
+        """
+        if self.compliance_manager:
+            return self.compliance_manager.get_compliance_report()
+        return None
 
 
 # ============================================================================
