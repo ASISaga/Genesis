@@ -41,11 +41,11 @@ from pathlib import Path
 try:
     from .genesis_parser import Lexer, Parser, Program
     from .genesis_interpreter import GenesisRuntime as GenesisInterpreter
-    from .compliance import ComplianceManager, AISystemCategory
+    from .compliance import ComplianceManager, AISystemCategory, RiskCategory, RiskLevel
 except ImportError:
     from genesis_parser import Lexer, Parser, Program
     from genesis_interpreter import GenesisRuntime as GenesisInterpreter
-    from compliance import ComplianceManager, AISystemCategory
+    from compliance import ComplianceManager, AISystemCategory, RiskCategory, RiskLevel
 
 
 # ============================================================================
@@ -282,17 +282,11 @@ class GenesisRuntime:
                 "All actions must achieve resonance threshold through Pantheon consensus"
             )
             
-            # Identify baseline risks
-            try:
-                from .compliance import RiskCategory, RiskLevel
-            except ImportError:
-                from compliance import RiskCategory, RiskLevel
-            
             # Add context documentation (NIST MAP)
-            self.compliance_manager.nist_rmf.context_documentation.add(
+            self.compliance_manager.add_context_documentation(
                 "Genesis ASI system with Covenant-based governance"
             )
-            self.compliance_manager.nist_rmf.context_documentation.add(
+            self.compliance_manager.add_context_documentation(
                 "Resonance-based decision making with Pantheon consensus"
             )
             

@@ -31,6 +31,15 @@ import logging
 
 
 # ============================================================================
+# COMPLIANCE CONSTANTS
+# ============================================================================
+
+# Default compliance thresholds - can be overridden via configuration
+DEFAULT_COVENANT_COMPLIANCE_THRESHOLD = 0.95  # Covenants should have high thresholds
+DEFAULT_EXECUTION_COMPLIANCE_THRESHOLD = 0.80  # Executions should meet minimum alignment
+
+
+# ============================================================================
 # ISO 42001 COMPLIANCE
 # ============================================================================
 
@@ -198,16 +207,24 @@ class ComplianceManager:
     ISO 42001 and NIST AI RMF requirements throughout execution.
     """
     
-    def __init__(self, enable_iso42001: bool = True, enable_nist_rmf: bool = True):
+    def __init__(self, enable_iso42001: bool = True, enable_nist_rmf: bool = True,
+                 covenant_threshold: float = DEFAULT_COVENANT_COMPLIANCE_THRESHOLD,
+                 execution_threshold: float = DEFAULT_EXECUTION_COMPLIANCE_THRESHOLD):
         """
         Initialize compliance manager.
         
         Args:
             enable_iso42001: Enable ISO 42001 compliance tracking
             enable_nist_rmf: Enable NIST AI RMF compliance tracking
+            covenant_threshold: Minimum threshold for covenant compliance (default: 0.95)
+            execution_threshold: Minimum threshold for execution compliance (default: 0.80)
         """
         self.enable_iso42001 = enable_iso42001
         self.enable_nist_rmf = enable_nist_rmf
+        
+        # Compliance thresholds
+        self.covenant_compliance_threshold = covenant_threshold
+        self.execution_compliance_threshold = execution_threshold
         
         # Compliance state
         self.iso42001 = ISO42001Requirements()
@@ -351,6 +368,17 @@ class ComplianceManager:
         self.logger.info("Incident response enabled")
         self.log_event("INCIDENT_RESPONSE", "Incident response enabled", "NIST.MANAGE")
     
+    def add_context_documentation(self, documentation: str):
+        """
+        Add context documentation (NIST MAP function).
+        
+        Args:
+            documentation: Context description to add
+        """
+        self.nist_rmf.context_documentation.add(documentation)
+        self.logger.info(f"Context documented: {documentation}")
+        self.log_event("CONTEXT_DOCUMENTATION", documentation, "NIST.MAP")
+    
     def log_event(self, event_type: str, description: str, component: str,
                   risk_level: Optional[RiskLevel] = None, metadata: Optional[Dict] = None):
         """
@@ -385,12 +413,12 @@ class ComplianceManager:
             True if covenant is compliant
         """
         # Covenants with high thresholds demonstrate strong governance
-        is_compliant = threshold >= 0.95
+        is_compliant = threshold >= self.covenant_compliance_threshold
         
         if is_compliant:
             self.logger.info(f"Covenant '{covenant_name}' meets compliance threshold")
         else:
-            self.logger.warning(f"Covenant '{covenant_name}' threshold {threshold} may be insufficient")
+            self.logger.warning(f"Covenant '{covenant_name}' threshold {threshold} below minimum {self.covenant_compliance_threshold}")
         
         self.log_event("COVENANT_VALIDATION", 
                       f"Covenant '{covenant_name}' threshold: {threshold}",
@@ -411,7 +439,7 @@ class ComplianceManager:
             True if execution is compliant
         """
         # High resonance indicates alignment with governance
-        is_compliant = resonance >= 0.80
+        is_compliant = resonance >= self.execution_compliance_threshold
         
         self.log_event("EXECUTION_VALIDATION",
                       f"Domain '{domain_name}' resonance: {resonance}",
@@ -450,48 +478,62 @@ class ComplianceManager:
             "audit_trail_events": len(self.audit_trail)
         }
     
-    def print_compliance_report(self):
-        """Print compliance report to console"""
-        report = self.get_compliance_report()
+    def format_compliance_report(self) -> str:
+        """
+        Format compliance report as a string.
         
-        print("\n" + "="*70)
-        print("GENESIS COMPLIANCE REPORT")
-        print("="*70)
-        print(f"Timestamp: {report['timestamp']}")
-        print(f"System Category: {report['system_category']}")
-        print()
+        Returns:
+            Formatted compliance report string
+        """
+        report = self.get_compliance_report()
+        lines = []
+        
+        lines.append("=" * 70)
+        lines.append("GENESIS COMPLIANCE REPORT")
+        lines.append("=" * 70)
+        lines.append(f"Timestamp: {report['timestamp']}")
+        lines.append(f"System Category: {report['system_category']}")
+        lines.append("")
         
         # ISO 42001
-        print("ISO 42001 (AI Management System):")
+        lines.append("ISO 42001 (AI Management System):")
         if report['iso42001']['enabled']:
-            print(f"  Overall Compliance: {'✓ COMPLIANT' if report['iso42001']['compliant'] else '✗ NON-COMPLIANT'}")
-            print("  Requirements:")
+            compliant = "✓ COMPLIANT" if report['iso42001']['compliant'] else "✗ NON-COMPLIANT"
+            lines.append(f"  Overall Compliance: {compliant}")
+            lines.append("  Requirements:")
             for req, status in report['iso42001']['requirements'].items():
                 symbol = "✓" if status else "✗"
-                print(f"    {symbol} {req.replace('_', ' ').title()}")
+                lines.append(f"    {symbol} {req.replace('_', ' ').title()}")
         else:
-            print("  Not Enabled")
-        print()
+            lines.append("  Not Enabled")
+        lines.append("")
         
         # NIST AI RMF
-        print("NIST AI Risk Management Framework:")
+        lines.append("NIST AI Risk Management Framework:")
         if report['nist_ai_rmf']['enabled']:
-            print(f"  Overall Compliance: {'✓ COMPLIANT' if report['nist_ai_rmf']['compliant'] else '✗ NON-COMPLIANT'}")
-            print("  Functions:")
+            compliant = "✓ COMPLIANT" if report['nist_ai_rmf']['compliant'] else "✗ NON-COMPLIANT"
+            lines.append(f"  Overall Compliance: {compliant}")
+            lines.append("  Functions:")
             for func in ['govern', 'map', 'measure', 'manage']:
                 status = report['nist_ai_rmf'][func]
                 symbol = "✓" if status else "✗"
-                print(f"    {symbol} {func.upper()}")
-            print(f"  Governance Policies: {len(report['nist_ai_rmf']['policies'])}")
-            print(f"  Risks Identified: {report['nist_ai_rmf']['risks_identified']}")
-            print(f"  Risks Measured: {report['nist_ai_rmf']['risks_measured']}")
-            print(f"  Mitigation Plans: {report['nist_ai_rmf']['mitigations']}")
+                lines.append(f"    {symbol} {func.upper()}")
+            lines.append(f"  Governance Policies: {len(report['nist_ai_rmf']['policies'])}")
+            lines.append(f"  Risks Identified: {report['nist_ai_rmf']['risks_identified']}")
+            lines.append(f"  Risks Measured: {report['nist_ai_rmf']['risks_measured']}")
+            lines.append(f"  Mitigation Plans: {report['nist_ai_rmf']['mitigations']}")
         else:
-            print("  Not Enabled")
-        print()
+            lines.append("  Not Enabled")
+        lines.append("")
         
-        print(f"Audit Trail Events: {report['audit_trail_events']}")
-        print("="*70)
+        lines.append(f"Audit Trail Events: {report['audit_trail_events']}")
+        lines.append("=" * 70)
+        
+        return "\n".join(lines)
+    
+    def print_compliance_report(self):
+        """Print compliance report to console"""
+        print("\n" + self.format_compliance_report())
 
 
 # ============================================================================

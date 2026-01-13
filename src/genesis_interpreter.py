@@ -17,10 +17,13 @@ prompts but continuously observes, deliberates, and manifests based on
 the declared Purpose and Potentiality.
 """
 
-from typing import Dict, List, Any, Optional, Callable
+from typing import Dict, List, Any, Optional, Callable, TYPE_CHECKING
 from dataclasses import dataclass, field
 import logging
 from enum import Enum
+
+if TYPE_CHECKING:
+    from .compliance import ComplianceManager
 
 try:
     # Try relative import (when used as a package)
@@ -304,7 +307,7 @@ class GenesisRuntime:
         self.mcp = MCPAdapter()
         self.resonance_engine = ResonanceEngine()
         self.context: Dict[str, Any] = {}
-        self.compliance_manager: Optional[Any] = None  # Injected by runtime
+        self.compliance_manager: Optional['ComplianceManager'] = None  # Injected by runtime
     
     def execute(self, program: Program):
         """Execute a Genesis program"""
