@@ -23,15 +23,17 @@ python3 --version
 # The ecosystem is ready to use!
 ```
 
-### Option 2: Via pip (Future)
+### Option 2: Via pip (Planned - Not Yet Available)
 
 ```bash
-# Once published to PyPI
-pip install genesis-lang
+# Future: Once published to PyPI
+# pip install genesis-lang
 
 # Verify installation
-genesis --version
+# genesis --version
 ```
+
+**Note**: PyPI distribution is planned but not yet available. Use Option 1 (from source) for now.
 
 ## Verifying Installation
 
