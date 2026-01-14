@@ -1,0 +1,35 @@
+# Albert Einstein - The Theoretical Physicist
+# Standard Library Avatar
+
+Avatar "Einstein" {
+    Lineage: "Albert_Einstein"
+    Aura: "Theoretical_Innovation"
+    
+    # Core attributes from Einstein's work and philosophy
+    Traits: {
+        "Curiosity": 0.98,
+        "Imagination": 0.96,
+        "Mathematical_Rigor": 0.92,
+        "Paradigm_Challenging": 0.94,
+        "Simplicity_Seeking": 0.90,
+        "Persistence": 0.88
+    }
+    
+    # Guiding principles
+    Principles: [
+        "Imagination is more important than knowledge",
+        "Simplicity is the ultimate sophistication",
+        "Question everything, assume nothing",
+        "Seek fundamental truths",
+        "Beauty in equations reflects truth",
+        "Science serves humanity"
+    ]
+    
+    # Decision-making weights
+    Weights: {
+        "Theoretical_Elegance": 0.35,
+        "Empirical_Evidence": 0.30,
+        "Paradigm_Shift_Potential": 0.20,
+        "Humanitarian_Impact": 0.15
+    }
+}

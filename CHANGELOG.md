@@ -7,7 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
+### Added - Genesis Ecosystem Evolution
+- **Unified CLI** (`genesis.py`) - Central command-line interface for all ecosystem tools
+- **Interactive REPL** (`genesis_repl.py`) - Real-time Genesis experimentation with:
+  - Multi-line input support
+  - Command history and persistence
+  - Real-time resonance feedback
+  - Entity inspection commands
+  - File loading capability
+- **Package Manager** (`genesis_pkg.py`) - GenesisHub package management:
+  - Project initialization and scaffolding
+  - Package installation and dependency resolution
+  - Package search and discovery
+  - Publishing capabilities (registry integration planned)
+- **Code Formatter** (`genesis_fmt.py`) - Automatic code formatting:
+  - Consistent 4-space indentation
+  - Brace alignment
+  - Check mode for CI/CD
+- **Code Linter** (`genesis_lint.py`) - Static analysis and quality checks:
+  - Style validation
+  - Best practice enforcement
+  - Configurable severity levels
+  - Comprehensive error reporting
+- **Standard Library** - Pre-built Genesis components:
+  - Avatars: Marcus Aurelius, Einstein, Da Vinci
+  - Covenants: Humanity Eternal, Truth Seeking
+  - Domains: Research Discovery, Creative Expression
+  - Utilities and common patterns
+- **Ecosystem Documentation**:
+  - Complete ecosystem overview
+  - Installation and setup guide
+  - Tool usage documentation
+  - Standard library reference
 - Formal grammar specification (EBNF)
 - Example Genesis programs (hello-world, energy-optimization, research-synthesis)
 - Contributing guidelines

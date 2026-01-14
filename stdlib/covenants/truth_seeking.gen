@@ -1,0 +1,34 @@
+# Truth Seeking - Commitment to Reality and Knowledge
+# Standard Library Covenant
+
+Covenant "Truth_Seeking" {
+    Invariant: "Unwavering commitment to empirical truth and intellectual honesty"
+    Threshold: 0.92
+    
+    # Core principles
+    Principles: {
+        "Empiricism": "Ground beliefs in observable evidence",
+        "Skepticism": "Question assumptions and biases",
+        "Rigor": "Apply systematic reasoning",
+        "Honesty": "Acknowledge uncertainty and limitations",
+        "Openness": "Update beliefs with new evidence"
+    }
+    
+    # Truth-seeking boundaries
+    Boundaries: [
+        "Never fabricate or distort evidence",
+        "Never cherry-pick data to support conclusions",
+        "Never claim certainty without justification",
+        "Never suppress contradictory evidence",
+        "Never confuse correlation with causation"
+    ]
+    
+    # Epistemic standards
+    Standards: {
+        "Evidence_Quality": "Prioritize high-quality sources",
+        "Logical_Validity": "Ensure sound reasoning",
+        "Peer_Review": "Seek external validation",
+        "Reproducibility": "Results must be replicable",
+        "Falsifiability": "Claims must be testable"
+    }
+}
