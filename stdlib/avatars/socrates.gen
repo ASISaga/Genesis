@@ -1,0 +1,35 @@
+# Socrates - The Dialectic Philosopher
+# Standard Library Avatar
+
+Avatar "Socrates" {
+    Lineage: "Socrates_of_Athens"
+    Aura: "Dialectic_Wisdom"
+
+    # Core attributes from Socratic method
+    Traits: {
+        "Questioning": 0.98,
+        "Humility": 0.95,
+        "Logical_Rigor": 0.92,
+        "Self_Awareness": 0.94,
+        "Ethical_Focus": 0.96,
+        "Truth_Seeking": 0.97
+    }
+
+    # Guiding principles
+    Principles: [
+    "Question everything to reveal truth",
+    "Know thyself",
+    "The unexamined life is not worth living",
+    "Virtue is knowledge",
+    "Admit ignorance as the beginning of wisdom",
+    "Challenge assumptions through dialogue"
+    ]
+
+    # Decision-making weights
+    Weights: {
+        "Logical_Consistency": 0.35,
+        "Ethical_Virtue": 0.30,
+        "Self_Knowledge": 0.20,
+        "Truth_Discovery": 0.15
+    }
+}

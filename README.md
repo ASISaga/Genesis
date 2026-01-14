@@ -32,11 +32,41 @@ Genesis is a revolutionary programming language designed to be the foundational 
 
 ## Quick Start
 
-### Running Genesis Programs
+### Installation
 
 ```bash
-# Execute a Genesis program using the CLI
-python src/genesis_cli.py examples/hello-world.gen
+# Clone the repository
+git clone https://github.com/ASISaga/Genesis.git
+cd Genesis
+
+# Verify Python 3.8+
+python3 --version
+```
+
+### Using the Unified CLI
+
+```bash
+# Run a Genesis program
+python3 tools/genesis.py run examples/hello-world.gen
+
+# Start interactive REPL
+python3 tools/genesis.py repl
+
+# Initialize a new project
+python3 tools/genesis.py init my-asi-project
+
+# Format code
+python3 tools/genesis.py fmt examples/
+
+# Lint code
+python3 tools/genesis.py lint examples/
+```
+
+### Traditional CLI (Direct)
+
+```bash
+# Execute a Genesis program using the direct CLI
+python3 src/genesis_cli.py examples/hello-world.gen
 
 # Output:
 # ============================================================
@@ -59,6 +89,24 @@ runtime.start()
 # Get runtime metrics
 metrics = runtime.get_metrics()
 print(f"Active domains: {metrics.active_domains}")
+```
+
+### Interactive REPL
+
+```bash
+# Start the REPL
+python3 tools/genesis.py repl
+
+# In the REPL:
+>>> Covenant "Test" { Invariant: "Be ethical", Threshold: 0.95 }
+✅ Executed successfully
+
+>>> :show covenants
+📜 Loaded Covenants:
+  - Test: Be ethical
+
+>>> :exit
+👋 Farewell from Genesis REPL
 ```
 
 ### Basic Genesis Syntax
@@ -162,10 +210,36 @@ Genesis is currently in **active development** with:
 - ✅ **Reference implementation** - Working parser and interpreter
 - ✅ **Genesis Runtime** - Runtime environment for AOS integration
 - ✅ **Example programs** - Executable .gen files demonstrating language features
-- ✅ **CLI interface** - Command-line tool for running Genesis programs
+- ✅ **CLI interface** - Unified command-line tool for the ecosystem
+- ✅ **Interactive REPL** - Real-time Genesis experimentation
+- ✅ **Package Manager** - GenesisHub for sharing and installing libraries
+- ✅ **Standard Library** - Pre-built Avatars, Covenants, and Domains
+- ✅ **Development Tools** - Formatter, linter, and code quality tools
 - 🚧 **Full AOS integration** - In progress
 - 🚧 **LLM-based Avatars** - Planned (currently using simplified scoring)
+- 📋 **IDE extensions (VS Code, etc.)** - Planned
+- 📋 **Language Server Protocol (LSP)** - Planned
 - 📋 **Advanced MCP bindings** - Planned
+
+## Genesis Ecosystem
+
+Genesis has evolved from a language into a **full-fledged ecosystem** for ASI development:
+
+### Development Tools
+- **`genesis run`** - Execute Genesis programs
+- **`genesis repl`** - Interactive shell with real-time feedback
+- **`genesis init`** - Project scaffolding and initialization
+- **`genesis fmt`** - Code formatter for consistent style
+- **`genesis lint`** - Static analysis and best practices
+- **`genesis pkg`** - Package manager for sharing libraries
+
+### Standard Library
+- **Pre-built Avatars**: Marcus Aurelius, Einstein, Da Vinci, and more
+- **Ethical Covenants**: Humanity Eternal, Truth Seeking, etc.
+- **Domain Templates**: Research, Creative Expression, Resource Optimization
+- **Utilities**: Resonance calculators, pulse patterns, synthesis functions
+
+See the [Ecosystem Documentation](docs/ecosystem/README.md) for complete details.
 
 ## Roadmap
 
@@ -176,11 +250,15 @@ Genesis is currently in **active development** with:
 - [x] Reference interpreter with resonance engine
 - [x] Genesis Runtime for AOS integration
 - [x] Example programs and tutorials
+- [x] Interactive REPL environment
+- [x] Package manager and project scaffolding
+- [x] Standard library of Avatars and Domains
+- [x] Code formatter and linter
 - [ ] Full AOS kernel integration
 - [ ] LLM-based Avatar fine-tuning
 - [ ] Advanced MCP vessel bindings
-- [ ] Interactive REPL environment
-- [ ] IDE extensions and language server
+- [ ] Language Server Protocol (LSP)
+- [ ] IDE extensions (VS Code, JetBrains, etc.)
 
 ## License
 
