@@ -88,24 +88,25 @@ Covenant "Core_Values" {
         """Install a Genesis package."""
         print(f"📦 Installing {package_name}...")
         
-        # For now, this is a placeholder - would connect to GenesisHub registry
-        # In a real implementation, this would:
-        # 1. Fetch package metadata from registry
-        # 2. Download package files
-        # 3. Verify integrity
-        # 4. Install to local packages directory
-        # 5. Update project manifest
+        # NOTE: This is a placeholder implementation for the package manager.
+        # In a production implementation, this would:
+        # 1. Connect to GenesisHub registry
+        # 2. Fetch package metadata and verify integrity
+        # 3. Download and install package files
+        # 4. Update project manifest with dependencies
+        # 5. Handle version conflicts and dependencies
         
         package_dir = self.packages_dir / package_name
         if package_dir.exists():
             print(f"✅ Package {package_name} already installed")
             return True
         
-        # Simulate package installation
+        # Simulate package installation (demo functionality)
+        print("⚠️  Note: Package installation is simulated (GenesisHub registry not yet deployed)")
         package_dir.mkdir(exist_ok=True)
         (package_dir / "README.md").write_text(f"# {package_name}\n\nGenesis package")
         
-        print(f"✅ Installed {package_name}")
+        print(f"✅ Installed {package_name} (simulated)")
         return True
     
     def list_packages(self):
@@ -125,9 +126,10 @@ Covenant "Core_Values" {
     def search_packages(self, query: str):
         """Search for packages in the registry."""
         print(f"🔍 Searching for '{query}'...")
+        print("⚠️  Note: Searching demo packages (GenesisHub registry not yet deployed)")
         
-        # Placeholder - would query GenesisHub registry
-        # Mock some results for demonstration
+        # Mock search results for demonstration
+        # In production, this would query the actual GenesisHub registry
         mock_results = [
             {"name": "avatar-templates", "description": "Common Avatar templates", "version": "1.0.0"},
             {"name": "ethics-covenants", "description": "Pre-built ethical Covenants", "version": "1.2.0"},
@@ -140,7 +142,7 @@ Covenant "Core_Values" {
             print("No packages found")
             return
         
-        print(f"\n📦 Found {len(results)} package(s):")
+        print(f"\n📦 Found {len(results)} package(s) (demo data):")
         for pkg in results:
             print(f"  {pkg['name']} (v{pkg['version']}) - {pkg['description']}")
     

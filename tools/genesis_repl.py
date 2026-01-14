@@ -35,7 +35,8 @@ class GenesisREPL:
         if self.history_file.exists():
             try:
                 readline.read_history_file(str(self.history_file))
-            except:
+            except Exception:
+                # Ignore errors loading history file
                 pass
         
         # Set history length
@@ -48,7 +49,8 @@ class GenesisREPL:
         """Save command history to file."""
         try:
             readline.write_history_file(str(self.history_file))
-        except:
+        except Exception:
+            # Ignore errors saving history file
             pass
     
     def print_banner(self):

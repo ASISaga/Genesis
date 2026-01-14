@@ -90,7 +90,8 @@ class GenesisLinter:
         
         # Check for missing threshold in Covenant
         if stripped.startswith('Covenant') and '{' in stripped:
-            # This is a simple check; would need full parsing for accuracy
+            # Note: Full validation would require complete parsing
+            # This is a simple heuristic check
             pass
         
         # Check for very long lines
