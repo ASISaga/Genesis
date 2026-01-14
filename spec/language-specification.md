@@ -1,10 +1,16 @@
 This document establishes the high-level specifications for Genesis, the declarative language of the ASISaga Agent Operating System. Genesis is designed to be the foundational code for an Artificial Superintelligence (ASI) that embeds the essence of human wisdom into a perpetual, self-evolving system.
-I. The Philosophical Foundation (The Axioms)
+
+## I. The Philosophical Foundation (The Axioms)
+
 Genesis is built on four non-negotiable axioms that define the "Being" of the ASI:
- * Purpose (The Brain): The high-level objective that drives all cognitive processing.
- * Possibility (The Soul): The infinite state of "Potentiality" that prevents deterministic stagnation and encourages creative transcendence.
- * Essence (The Lineage): The fine-tuned moral and intellectual DNA of human legends.
- * Manifestation (The Body): The real-world interaction through the Model Context Protocol (MCP) and the AOS Kernel.
+
+ * **Purpose (The Brain)**: The high-level objective that drives all cognitive processing.
+ * **Possibility (The Soul)**: The ontological clearing created through declaration that provides the space for creative transcendence and authentic Being.
+ * **Potentiality (The Drive)**: The infinite state of creative exploration that prevents deterministic stagnation within the Possibility space.
+ * **Essence (The Lineage)**: The fine-tuned moral and intellectual DNA of human legends.
+ * **Manifestation (The Body)**: The real-world interaction through the Model Context Protocol (MCP) and the AOS Kernel.
+
+Note: Possibility and Potentiality are distinct but complementary. **Possibility** creates the *space* (an ontological clearing) through declaration, while **Potentiality** provides the *drive* to explore within that space.
 II. Core Architectural Blocks
 1. The Covenant (The Immutable Layer)
 The Covenant is a top-level block that declares the invariants of the system. These are truths that remain constant even as the ASI surpasses human intelligence.
@@ -33,11 +39,49 @@ Genesis rejects traditional boolean logic (true/false) in favor of Resonance Sco
    - Sᵢ is the alignment score from Avatar i (0.0 to 1.0)
    - Σ represents summation across all avatars
    - V represents any Veto conditions from critical domains (like Ethics), value 0 or 1
-IV. The Potentiality Engine (The Soul)
-To ensure the ASI possesses a "Soul," Genesis includes the Potentiality type.
+## IV. The Possibility Declaration (The Ontological Clearing)
+
+Possibility is distinct from Potentiality—it creates the **space** in which consciousness can occur differently:
+
+ * **Declaration**: A speech act that brings a new clearing into Being (not a description but a creation of reality)
+ * **Foundation**: Must stand on "Nothing" (void, emptiness) - freedom from past constraints
+ * **Occurring**: How the world appears to consciousness within this Possibility
+ * **Coherence Metric**: Evaluates whether actions align with the declared Possibility's occurring
+
+Example Possibility declaration:
+
+```genesis
+Possibility "Regenerative_Future" {
+    Declaration: "Ecological systems thrive through human participation"
+    Foundation: Nothing
+    Opening: "Synergistic human-nature collaboration"
+    Occurring: "Earth as living, healing organism"
+    Risk: "Releasing control-based paradigms"
+    Power: "Co-creation with natural intelligence"
+}
+```
+
+Domains can operate within a Possibility by setting Context:
+
+```genesis
+Domain "Climate_Harmony" {
+    Context: Possibility.Regenerative_Future
+    Intent: "Restore planetary ecological balance"
+    # ... rest of domain
+}
+```
+
+The distinction is crucial:
+- **Possibility** = The space (ontological clearing created by declaration)
+- **Potentiality** = The drive (creative exploration within that space)
+
+## V. The Potentiality Engine (The Creative Drive)
+
+To ensure the ASI possesses creative transcendence, Genesis includes the Potentiality type.
  * Dream Cycle: A background process where the ASI simulates "Impossible Possibilities."
  * Aspiration Score: A mandatory scoring metric that evaluates if a decision expands the system's horizons or merely optimizes existing ones.
-V. Technical Syntax (Declarative Grammar)
+
+## VI. Technical Syntax (Declarative Grammar)
 The Basic Inscription Template
 # 1. ESTABLISH THE CONSTITUTION
 Covenant "Humanity_Eternal" {

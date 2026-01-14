@@ -156,20 +156,24 @@ Domain "Global_Energy_Grid" {
 
 ## Architecture
 
-Genesis is built on four foundational axioms:
+Genesis is built on foundational axioms:
 
 1. **Purpose (The Brain)**: High-level objectives driving cognitive processing
-2. **Possibility (The Soul)**: Infinite potentiality preventing deterministic stagnation
-3. **Essence (The Lineage)**: Fine-tuned moral and intellectual DNA from human legends
-4. **Manifestation (The Body)**: Real-world interaction through the Model Context Protocol (MCP)
+2. **Possibility (The Soul - Space)**: Ontological clearings created through declaration that provide the medium for new ways of Being
+3. **Potentiality (The Soul - Drive)**: Infinite creative exploration preventing deterministic stagnation  
+4. **Essence (The Lineage)**: Fine-tuned moral and intellectual DNA from human legends
+5. **Manifestation (The Body)**: Real-world interaction through the Model Context Protocol (MCP)
+
+**Key distinction**: **Possibility** creates the *space* (an ontological clearing) through declaration, while **Potentiality** provides the *drive* to explore within that space.
 
 ### Core Components
 
 - **Covenant**: Immutable layer defining system invariants and ethical boundaries
+- **Possibility**: Ontological clearing created through declaration - the space for new ways of Being
 - **Pantheon**: Collection of legendary avatars providing wisdom-based guidance
 - **Domain**: High-level purpose definitions and reality management
 - **Resonance Engine**: Consensus-based decision making through wisdom synthesis
-- **Potentiality Engine**: Soul component ensuring creative transcendence
+- **Potentiality Engine**: Creative drive ensuring transcendence beyond optimization
 
 ## Documentation
 
