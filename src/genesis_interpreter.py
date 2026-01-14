@@ -28,20 +28,20 @@ if TYPE_CHECKING:
 try:
     # Try relative import (when used as a package)
     from .genesis_parser import (
-        Program, CovenantDeclaration, PantheonDeclaration, AvatarDeclaration,
-        DomainDeclaration, PulseDefinition, SoulDefinition, PurposeDefinition,
-        WatchStatement, DeliberateBlock, ResonateBlock, ManifestBlock,
-        ExecuteStatement, UpdateStatement, FunctionCall, MemberAccess,
-        Identifier, Literal
+        Program, CovenantDeclaration, PossibilityDeclaration, PantheonDeclaration, 
+        AvatarDeclaration, DomainDeclaration, PulseDefinition, SoulDefinition, 
+        PurposeDefinition, WatchStatement, DeliberateBlock, ResonateBlock, 
+        ManifestBlock, ExecuteStatement, UpdateStatement, FunctionCall, 
+        MemberAccess, Identifier, Literal
     )
 except ImportError:
     # Fall back to absolute import (when run directly)
     from genesis_parser import (
-        Program, CovenantDeclaration, PantheonDeclaration, AvatarDeclaration,
-        DomainDeclaration, PulseDefinition, SoulDefinition, PurposeDefinition,
-        WatchStatement, DeliberateBlock, ResonateBlock, ManifestBlock,
-        ExecuteStatement, UpdateStatement, FunctionCall, MemberAccess,
-        Identifier, Literal
+        Program, CovenantDeclaration, PossibilityDeclaration, PantheonDeclaration, 
+        AvatarDeclaration, DomainDeclaration, PulseDefinition, SoulDefinition, 
+        PurposeDefinition, WatchStatement, DeliberateBlock, ResonateBlock, 
+        ManifestBlock, ExecuteStatement, UpdateStatement, FunctionCall, 
+        MemberAccess, Identifier, Literal
     )
 
 
@@ -78,6 +78,14 @@ class PotentialityState(Enum):
     DREAMING = "Dreaming"
     MANIFESTING = "Manifesting"
     TRANSCENDING = "Transcending"
+
+
+class PossibilityFoundation(Enum):
+    """Foundation types for Possibility declarations"""
+    NOTHING = "Nothing"
+    VOID = "Void"
+    EMPTINESS = "Emptiness"
+    FREEDOM = "Freedom"
 
 
 # ============================================================================
@@ -233,6 +241,107 @@ class PotentialityEngine:
 
 
 # ============================================================================
+# POSSIBILITY ENGINE
+# ============================================================================
+
+@dataclass
+class Possibility:
+    """
+    Runtime representation of a Possibility - an ontological clearing.
+    
+    A Possibility creates a space for Being through declaration,
+    fundamentally altering how the world "occurs" to the consciousness.
+    """
+    name: str
+    declaration: str
+    foundation: PossibilityFoundation
+    opening: Optional[str] = None
+    occurring: Optional[str] = None
+    risk: Optional[str] = None
+    power: Optional[str] = None
+    within: Optional[str] = None  # Reference to parent Possibility
+    
+    def __post_init__(self):
+        """Log the creation of this Possibility"""
+        logger.info(f"🌌 Possibility '{self.name}' declared: {self.declaration}")
+        logger.info(f"   Foundation: {self.foundation.value}")
+        if self.occurring:
+            logger.info(f"   Occurring: {self.occurring}")
+
+
+class PossibilityEngine:
+    """
+    Manages ontological Possibilities - clearings for Being.
+    
+    Unlike the Potentiality engine which drives exploration,
+    the Possibility engine creates the SPACE in which exploration occurs.
+    It tracks declared Possibilities and evaluates coherence with them.
+    """
+    
+    def __init__(self):
+        self.possibilities: Dict[str, Possibility] = {}
+        self.active_context: Optional[str] = None
+    
+    def register_possibility(self, possibility: Possibility):
+        """Register a new Possibility in the system"""
+        self.possibilities[possibility.name] = possibility
+        logger.info(f"Possibility '{possibility.name}' registered in the clearing")
+    
+    def get_possibility(self, name: str) -> Optional[Possibility]:
+        """Retrieve a Possibility by name"""
+        return self.possibilities.get(name)
+    
+    def set_context(self, possibility_ref: str):
+        """
+        Set the active Possibility context for a Domain.
+        This alters how the world "occurs" to the consciousness.
+        """
+        self.active_context = possibility_ref
+        if possibility_ref in self.possibilities:
+            poss = self.possibilities[possibility_ref]
+            logger.info(f"🎯 Context set to Possibility '{possibility_ref}'")
+            logger.info(f"   Occurring: {poss.occurring or 'default'}")
+    
+    def evaluate_coherence(self, proposal: Dict[str, Any], possibility_ref: str) -> float:
+        """
+        Evaluate how well a proposal aligns with a declared Possibility.
+        
+        This measures whether actions embody the Possibility's occurring.
+        Returns coherence score (0.0 to 1.0).
+        """
+        if possibility_ref not in self.possibilities:
+            logger.warning(f"Unknown Possibility reference: {possibility_ref}")
+            # Return neutral score for unknown Possibility - in production this should raise an error
+            return 0.5
+        
+        poss = self.possibilities[possibility_ref]
+        
+        # Simplified coherence evaluation
+        # In production, this would involve deep semantic analysis
+        # of whether the proposal embodies the Possibility's occurring
+        # TODO: Replace with LLM-based semantic alignment analysis
+        
+        coherence_score = 0.85  # Default demonstration score
+        
+        logger.info(f"Coherence with '{possibility_ref}': {coherence_score:.2f}")
+        logger.info(f"  Declaration: {poss.declaration}")
+        if poss.occurring:
+            logger.info(f"  Occurring check: Does proposal align with '{poss.occurring}'?")
+        
+        return coherence_score
+    
+    def get_occurring_context(self, possibility_ref: Optional[str] = None) -> Optional[str]:
+        """
+        Get the occurring (how the world appears) for a given Possibility.
+        This context shapes perception and action.
+        """
+        ref = possibility_ref or self.active_context
+        if ref and ref in self.possibilities:
+            return self.possibilities[ref].occurring
+        return None
+
+
+# ============================================================================
 # MCP ADAPTER
 # ============================================================================
 
@@ -301,9 +410,11 @@ class GenesisRuntime:
     
     def __init__(self):
         self.covenants: Dict[str, CovenantDeclaration] = {}
+        self.possibilities: Dict[str, Possibility] = {}
         self.pantheons: Dict[str, List[Avatar]] = {}
         self.domains: Dict[str, DomainDeclaration] = {}
         self.potentiality = PotentialityEngine()
+        self.possibility_engine = PossibilityEngine()
         self.mcp = MCPAdapter()
         self.resonance_engine = ResonanceEngine()
         self.context: Dict[str, Any] = {}
@@ -339,6 +450,29 @@ class GenesisRuntime:
             # Compliance validation
             if self.compliance_manager:
                 self.compliance_manager.validate_covenant_compliance(declaration.name, threshold)
+        
+        elif isinstance(declaration, PossibilityDeclaration):
+            # Create Possibility instance
+            foundation_str = declaration.properties.get('foundation', 'Nothing')
+            try:
+                foundation = PossibilityFoundation(foundation_str)
+            except ValueError:
+                logger.warning(f"Invalid Foundation value '{foundation_str}', defaulting to Nothing")
+                foundation = PossibilityFoundation.NOTHING
+            
+            possibility = Possibility(
+                name=declaration.name,
+                declaration=declaration.properties.get('declaration', ''),
+                foundation=foundation,
+                opening=declaration.properties.get('opening'),
+                occurring=declaration.properties.get('occurring'),
+                risk=declaration.properties.get('risk'),
+                power=declaration.properties.get('power'),
+                within=declaration.properties.get('within')
+            )
+            
+            self.possibilities[declaration.name] = possibility
+            self.possibility_engine.register_possibility(possibility)
         
         elif isinstance(declaration, PantheonDeclaration):
             avatars = []
@@ -376,6 +510,17 @@ class GenesisRuntime:
             'domain_name': domain.name,
             'intent': domain.intent
         }
+        
+        # Set Possibility context if specified
+        if domain.context:
+            # Extract possibility name from "Possibility.Name" format
+            if '.' in domain.context:
+                poss_name = domain.context.split('.')[-1]
+            else:
+                logger.warning(f"Invalid Possibility reference format: {domain.context}")
+                poss_name = domain.context
+            self.possibility_engine.set_context(poss_name)
+            domain_context['possibility_context'] = poss_name
         
         # Process domain-specific pantheon if present
         if hasattr(domain, 'pantheon') and domain.pantheon:
@@ -586,6 +731,6 @@ def run_genesis_program(source_code: str):
 # ============================================================================
 
 __all__ = [
-    'GenesisRuntime', 'ResonanceEngine', 'PotentialityEngine',
-    'MCPAdapter', 'Avatar', 'run_genesis_program'
+    'GenesisRuntime', 'ResonanceEngine', 'PotentialityEngine', 'PossibilityEngine',
+    'Possibility', 'PossibilityFoundation', 'MCPAdapter', 'Avatar', 'run_genesis_program'
 ]

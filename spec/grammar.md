@@ -31,6 +31,7 @@ keyword ::= "Covenant"
           | "Synthesize" 
           | "Manifest" 
           | "Decree" 
+          | "Possibility"
           | "Potentiality" 
           | "Vessel" 
           | "Lineage" 
@@ -48,6 +49,7 @@ keyword ::= "Covenant"
           | "Metric" 
           | "Alignment" 
           | "Aspiration" 
+          | "Coherence"
           | "on" 
           | "Interval"
           | "State" 
@@ -55,6 +57,16 @@ keyword ::= "Covenant"
           | "Reflect" 
           | "Override" 
           | "Constraint"
+          | "Declaration"
+          | "Foundation"
+          | "Opening"
+          | "Occurring"
+          | "Nothing"
+          | "Void"
+          | "Emptiness"
+          | "Freedom"
+          | "Risk"
+          | "Power"
 ```
 
 ### Identifiers
@@ -91,6 +103,7 @@ declaration ::= covenant_declaration
               | pantheon_declaration
               | domain_declaration
               | decree_declaration
+              | possibility_declaration
 ```
 
 ### Covenant Declaration
@@ -103,6 +116,26 @@ covenant_declaration ::= "Covenant" string_literal "{"
 covenant_property ::= "Invariant" ":" string_literal
                     | "Threshold" ":" number_literal
                     | "Evolutionary_Guardrails" ":" string_literal
+```
+
+### Possibility Declaration
+
+```ebnf
+possibility_declaration ::= "Possibility" string_literal "{"
+                            { possibility_property }
+                            "}"
+
+possibility_property ::= "Declaration" ":" string_literal
+                       | "Foundation" ":" foundation_value
+                       | "Opening" ":" string_literal
+                       | "Occurring" ":" string_literal
+                       | "Risk" ":" string_literal
+                       | "Power" ":" string_literal
+                       | "Within" ":" possibility_reference
+
+foundation_value ::= "Nothing" | "Void" | "Emptiness" | "Freedom"
+
+possibility_reference ::= "Possibility" "." identifier
 ```
 
 ### Pantheon Declaration
@@ -130,6 +163,7 @@ domain_declaration ::= "Domain" string_literal "{"
                        [ soul_definition ]
                        [ purpose_definition ]
                        [ intent_statement ]
+                       [ context_statement ]
                        { pulse_definition }
                        "}"
 
@@ -151,6 +185,8 @@ purpose_property ::= "Objective" ":" string_literal
                    | "Trajectory" ":" string_literal
 
 intent_statement ::= "Intent" ":" string_literal
+
+context_statement ::= "Context" ":" possibility_reference
 ```
 
 ### Pulse Definition
@@ -210,6 +246,7 @@ metric_statement ::= "Metric" ":" metric_expression
 metric_expression ::= function_call
                     | "Alignment" "(" expression ")"
                     | "Aspiration" "(" expression ")"
+                    | "Coherence" "(" expression ")"
 ```
 
 ### Resonate Block
@@ -317,6 +354,7 @@ Genesis uses dynamic typing with the following conceptual types:
 - **Essence**: String identifier for wisdom lineage
 - **Vessel**: MCP tool reference
 - **Potentiality**: Special type representing infinite possibility space
+- **Possibility**: Ontological clearing created through declaration
 
 ## Semantic Rules
 
@@ -326,6 +364,9 @@ Genesis uses dynamic typing with the following conceptual types:
 4. **Vessel Access**: Must be declared in Avatar or accessible globally
 5. **Pulse Execution**: Runs perpetually based on interval specification
 6. **Potentiality State**: Must be one of predefined consciousness states
+7. **Possibility Declaration**: Must include Declaration and Foundation properties
+8. **Possibility Foundation**: Must be one of: Nothing, Void, Emptiness, Freedom
+9. **Coherence Metric**: Evaluates alignment with a declared Possibility's occurring
 
 ## Scoping Rules
 
@@ -333,6 +374,8 @@ Genesis uses dynamic typing with the following conceptual types:
 2. Pantheon Avatars are accessible within their declaring scope and child scopes
 3. Domain-local declarations are scoped to that domain
 4. Vessel references must resolve to declared Avatars or global MCP providers
+5. Possibilities are globally accessible once declared
+6. Domains can reference Possibilities via Context property
 
 ## Operator Precedence (from highest to lowest)
 
@@ -357,6 +400,7 @@ Weighted_Synthesis(weights)
 # Alignment functions
 Alignment(covenant_ref)
 Aspiration(potentiality_ref)
+Coherence(possibility_ref)
 
 # Utility functions
 RealTime
