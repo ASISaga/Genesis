@@ -35,7 +35,7 @@ class GenesisREPL:
         if self.history_file.exists():
             try:
                 readline.read_history_file(str(self.history_file))
-            except Exception:
+            except (OSError, IOError, PermissionError):
                 # Ignore errors loading history file
                 pass
         
@@ -49,7 +49,7 @@ class GenesisREPL:
         """Save command history to file."""
         try:
             readline.write_history_file(str(self.history_file))
-        except Exception:
+        except (OSError, IOError, PermissionError):
             # Ignore errors saving history file
             pass
     

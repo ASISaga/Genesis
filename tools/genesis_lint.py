@@ -92,6 +92,7 @@ class GenesisLinter:
         if stripped.startswith('Covenant') and '{' in stripped:
             # Note: Full validation would require complete parsing
             # This is a simple heuristic check
+            # TODO: Enhance with full AST-based validation when parser is integrated
             pass
         
         # Check for very long lines
