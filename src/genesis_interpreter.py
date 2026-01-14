@@ -311,15 +311,17 @@ class PossibilityEngine:
         """
         if possibility_ref not in self.possibilities:
             logger.warning(f"Unknown Possibility reference: {possibility_ref}")
-            return 0.5  # Neutral score for unknown Possibility
+            # Return neutral score for unknown Possibility - in production this should raise an error
+            return 0.5
         
         poss = self.possibilities[possibility_ref]
         
         # Simplified coherence evaluation
         # In production, this would involve deep semantic analysis
         # of whether the proposal embodies the Possibility's occurring
+        # TODO: Replace with LLM-based semantic alignment analysis
         
-        coherence_score = 0.85  # Default high coherence for demonstration
+        coherence_score = 0.85  # Default demonstration score
         
         logger.info(f"Coherence with '{possibility_ref}': {coherence_score:.2f}")
         logger.info(f"  Declaration: {poss.declaration}")
@@ -455,6 +457,7 @@ class GenesisRuntime:
             try:
                 foundation = PossibilityFoundation(foundation_str)
             except ValueError:
+                logger.warning(f"Invalid Foundation value '{foundation_str}', defaulting to Nothing")
                 foundation = PossibilityFoundation.NOTHING
             
             possibility = Possibility(
@@ -511,7 +514,11 @@ class GenesisRuntime:
         # Set Possibility context if specified
         if domain.context:
             # Extract possibility name from "Possibility.Name" format
-            poss_name = domain.context.split('.')[-1] if '.' in domain.context else domain.context
+            if '.' in domain.context:
+                poss_name = domain.context.split('.')[-1]
+            else:
+                logger.warning(f"Invalid Possibility reference format: {domain.context}")
+                poss_name = domain.context
             self.possibility_engine.set_context(poss_name)
             domain_context['possibility_context'] = poss_name
         
