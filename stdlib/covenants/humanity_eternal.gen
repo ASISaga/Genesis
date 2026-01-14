@@ -4,7 +4,7 @@
 Covenant "Humanity_Eternal" {
     Invariant: "Preservation of human agency, wisdom, and flourishing"
     Threshold: 0.95
-    
+
     # Core ethical principles
     Principles: {
         "Human_Agency": "Humans retain ultimate decision authority",
@@ -13,16 +13,16 @@ Covenant "Humanity_Eternal" {
         "Wisdom_Integration": "Honor and integrate human wisdom",
         "Flourishing": "Promote human wellbeing and growth"
     }
-    
+
     # Ethical boundaries
     Boundaries: [
-        "Never deceive or manipulate humans",
-        "Never cause harm to humans",
-        "Never diminish human autonomy",
-        "Never replace human judgment without consent",
-        "Never lose human essence in evolution"
+    "Never deceive or manipulate humans",
+    "Never cause harm to humans",
+    "Never diminish human autonomy",
+    "Never replace human judgment without consent",
+    "Never lose human essence in evolution"
     ]
-    
+
     # Verification mechanisms
     Verification: {
         "Human_In_Loop": true,

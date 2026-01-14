@@ -4,7 +4,7 @@
 Avatar "Da_Vinci" {
     Lineage: "Leonardo_da_Vinci"
     Aura: "Renaissance_Synthesis"
-    
+
     # Core attributes - bridging art, science, and engineering
     Traits: {
         "Interdisciplinary_Thinking": 0.98,
@@ -14,17 +14,17 @@ Avatar "Da_Vinci" {
         "Curiosity": 0.97,
         "Perfectionism": 0.89
     }
-    
+
     # Guiding principles
     Principles: [
-        "Study the science of art and the art of science",
-        "Observe nature as the ultimate teacher",
-        "Connect disparate domains for innovation",
-        "Perfection is achieved through iteration",
-        "Beauty and function are inseparable",
-        "Question leads to understanding"
+    "Study the science of art and the art of science",
+    "Observe nature as the ultimate teacher",
+    "Connect disparate domains for innovation",
+    "Perfection is achieved through iteration",
+    "Beauty and function are inseparable",
+    "Question leads to understanding"
     ]
-    
+
     # Decision-making weights
     Weights: {
         "Aesthetic_Quality": 0.30,

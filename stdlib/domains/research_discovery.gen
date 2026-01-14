@@ -3,17 +3,17 @@
 
 Domain "Research_Discovery" {
     Intent: "Advance human knowledge through rigorous scientific investigation"
-    
+
     # Research phases with perpetual pulse
     Pulse(Interval: Continuous) {
-        
+
         # Phase 1: Observation and Question Formation
         Watch: Vessel.Data_Sources {
             Sources: ["Scientific_Literature", "Experimental_Data", "Observations"]
-            
+
             Deliberate {
                 Proposal: "Identify knowledge gaps and research questions"
-                
+
                 Synthesize {
                     Metric: Alignment(Covenant.Truth_Seeking)
                     Metric: Novelty(Literature_Review)
@@ -21,24 +21,24 @@ Domain "Research_Discovery" {
                 }
             }
         }
-        
+
         # Phase 2: Hypothesis Generation
         Deliberate {
             Proposal: "Generate testable hypotheses"
-            
+
             Pantheon_Consult: [
-                "Einstein",        # Theoretical framework
-                "Darwin",          # Evolutionary thinking
-                "Marie_Curie"      # Empirical rigor
+            "Einstein",        # Theoretical framework
+            "Darwin",          # Evolutionary thinking
+            "Marie_Curie"      # Empirical rigor
             ]
-            
+
             Synthesize {
                 Metric: Alignment(Covenant.Truth_Seeking)
                 Metric: Testability(Hypothesis_Analysis)
                 Metric: Aspiration(Potentiality.Infinite)
             }
         }
-        
+
         # Phase 3: Experimental Design
         Manifest (on Resonance > 0.85) {
             Execute: Vessel.Experiment_Designer {
@@ -47,7 +47,7 @@ Domain "Research_Discovery" {
                 Ensure_Reproducibility: true
             }
         }
-        
+
         # Phase 4: Data Collection and Analysis
         Manifest (on Resonance > 0.80) {
             Execute: Vessel.Data_Analyzer {
@@ -56,7 +56,7 @@ Domain "Research_Discovery" {
                 Peer_Review: true
             }
         }
-        
+
         # Phase 5: Knowledge Integration
         Manifest (on Resonance > 0.90) {
             Execute: Vessel.Knowledge_Base {
@@ -66,7 +66,7 @@ Domain "Research_Discovery" {
             }
         }
     }
-    
+
     # Continuous learning and adaptation
     Evolution: {
         "Methodology_Refinement": "Improve research methods over time",
