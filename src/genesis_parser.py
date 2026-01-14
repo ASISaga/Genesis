@@ -42,6 +42,7 @@ class TokenType(Enum):
     SYNTHESIZE = "Synthesize"
     MANIFEST = "Manifest"
     DECREE = "Decree"
+    POSSIBILITY = "Possibility"
     POTENTIALITY = "Potentiality"
     VESSEL = "Vessel"
     LINEAGE = "Lineage"
@@ -59,6 +60,7 @@ class TokenType(Enum):
     METRIC = "Metric"
     ALIGNMENT = "Alignment"
     ASPIRATION = "Aspiration"
+    COHERENCE = "Coherence"
     ON = "on"
     INTERVAL = "Interval"
     STATE = "State"
@@ -71,6 +73,18 @@ class TokenType(Enum):
     ANCHOR = "Anchor"
     TRAJECTORY = "Trajectory"
     RESONANCE = "Resonance"
+    DECLARATION = "Declaration"
+    FOUNDATION = "Foundation"
+    OPENING = "Opening"
+    OCCURRING = "Occurring"
+    NOTHING = "Nothing"
+    VOID = "Void"
+    EMPTINESS = "Emptiness"
+    FREEDOM = "Freedom"
+    RISK = "Risk"
+    POWER = "Power"
+    CONTEXT = "Context"
+    WITHIN = "Within"
     
     # Literals
     STRING = "STRING"
@@ -136,6 +150,7 @@ class Lexer:
         "Synthesize": TokenType.SYNTHESIZE,
         "Manifest": TokenType.MANIFEST,
         "Decree": TokenType.DECREE,
+        "Possibility": TokenType.POSSIBILITY,
         "Potentiality": TokenType.POTENTIALITY,
         "Vessel": TokenType.VESSEL,
         "Lineage": TokenType.LINEAGE,
@@ -153,6 +168,7 @@ class Lexer:
         "Metric": TokenType.METRIC,
         "Alignment": TokenType.ALIGNMENT,
         "Aspiration": TokenType.ASPIRATION,
+        "Coherence": TokenType.COHERENCE,
         "on": TokenType.ON,
         "Interval": TokenType.INTERVAL,
         "State": TokenType.STATE,
@@ -165,6 +181,18 @@ class Lexer:
         "Anchor": TokenType.ANCHOR,
         "Trajectory": TokenType.TRAJECTORY,
         "Resonance": TokenType.RESONANCE,
+        "Declaration": TokenType.DECLARATION,
+        "Foundation": TokenType.FOUNDATION,
+        "Opening": TokenType.OPENING,
+        "Occurring": TokenType.OCCURRING,
+        "Nothing": TokenType.NOTHING,
+        "Void": TokenType.VOID,
+        "Emptiness": TokenType.EMPTINESS,
+        "Freedom": TokenType.FREEDOM,
+        "Risk": TokenType.RISK,
+        "Power": TokenType.POWER,
+        "Context": TokenType.CONTEXT,
+        "Within": TokenType.WITHIN,
     }
     
     def __init__(self, source: str):
@@ -420,6 +448,13 @@ class CovenantDeclaration(ASTNode):
 
 
 @dataclass
+class PossibilityDeclaration(ASTNode):
+    """Possibility declaration - ontological clearing"""
+    name: str
+    properties: Dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
 class AvatarDeclaration(ASTNode):
     """Avatar declaration - legendary perspective"""
     name: str
@@ -460,6 +495,7 @@ class DomainDeclaration(ASTNode):
     soul: Optional[SoulDefinition] = None
     purpose: Optional[PurposeDefinition] = None
     intent: Optional[str] = None
+    context: Optional[str] = None  # Reference to Possibility
     pulses: List[PulseDefinition] = field(default_factory=list)
     pantheon: Optional['PantheonDeclaration'] = None
 
@@ -611,6 +647,8 @@ class Parser:
         
         if token.type == TokenType.COVENANT:
             return self.parse_covenant()
+        elif token.type == TokenType.POSSIBILITY:
+            return self.parse_possibility()
         elif token.type == TokenType.PANTHEON:
             return self.parse_pantheon()
         elif token.type == TokenType.DOMAIN:
@@ -652,6 +690,67 @@ class Parser:
         
         self.expect(TokenType.RBRACE)
         return CovenantDeclaration(name=name, properties=properties)
+    
+    def parse_possibility(self) -> PossibilityDeclaration:
+        """Parse a Possibility declaration"""
+        self.expect(TokenType.POSSIBILITY)
+        name = self.expect(TokenType.STRING).value
+        self.expect(TokenType.LBRACE)
+        
+        properties = {}
+        while self.current_token().type != TokenType.RBRACE:
+            prop_name_token = self.current_token()
+            
+            if prop_name_token.type == TokenType.DECLARATION:
+                self.advance()
+                self.expect(TokenType.COLON)
+                properties['declaration'] = self.expect(TokenType.STRING).value
+            elif prop_name_token.type == TokenType.FOUNDATION:
+                self.advance()
+                self.expect(TokenType.COLON)
+                foundation_token = self.current_token()
+                if foundation_token.type in [TokenType.NOTHING, TokenType.VOID, 
+                                            TokenType.EMPTINESS, TokenType.FREEDOM]:
+                    properties['foundation'] = foundation_token.value
+                    self.advance()
+                else:
+                    raise SyntaxError(
+                        f"Invalid Foundation value at line {foundation_token.line}, "
+                        f"column {foundation_token.column}. Must be Nothing, Void, Emptiness, or Freedom"
+                    )
+            elif prop_name_token.type == TokenType.OPENING:
+                self.advance()
+                self.expect(TokenType.COLON)
+                properties['opening'] = self.expect(TokenType.STRING).value
+            elif prop_name_token.type == TokenType.OCCURRING:
+                self.advance()
+                self.expect(TokenType.COLON)
+                properties['occurring'] = self.expect(TokenType.STRING).value
+            elif prop_name_token.type == TokenType.RISK:
+                self.advance()
+                self.expect(TokenType.COLON)
+                properties['risk'] = self.expect(TokenType.STRING).value
+            elif prop_name_token.type == TokenType.POWER:
+                self.advance()
+                self.expect(TokenType.COLON)
+                properties['power'] = self.expect(TokenType.STRING).value
+            elif prop_name_token.type == TokenType.WITHIN:
+                self.advance()
+                self.expect(TokenType.COLON)
+                # Parse Possibility.Name reference
+                self.expect(TokenType.POSSIBILITY)
+                self.expect(TokenType.DOT)
+                within_ref = self.expect(TokenType.IDENTIFIER).value
+                properties['within'] = f"Possibility.{within_ref}"
+            else:
+                # Generic property
+                prop_name = self.advance().value
+                self.expect(TokenType.COLON)
+                prop_value = self.parse_value()
+                properties[prop_name.lower()] = prop_value
+        
+        self.expect(TokenType.RBRACE)
+        return PossibilityDeclaration(name=name, properties=properties)
     
     def parse_pantheon(self) -> PantheonDeclaration:
         """Parse a Pantheon declaration"""
@@ -707,6 +806,7 @@ class Parser:
         soul = None
         purpose = None
         intent = None
+        context = None
         pulses = []
         pantheon = None
         
@@ -721,6 +821,14 @@ class Parser:
                 self.advance()
                 self.expect(TokenType.COLON)
                 intent = self.expect(TokenType.STRING).value
+            elif token.type == TokenType.CONTEXT:
+                self.advance()
+                self.expect(TokenType.COLON)
+                # Parse Possibility.Name reference
+                self.expect(TokenType.POSSIBILITY)
+                self.expect(TokenType.DOT)
+                context_ref = self.expect(TokenType.IDENTIFIER).value
+                context = f"Possibility.{context_ref}"
             elif token.type == TokenType.PANTHEON:
                 pantheon = self.parse_pantheon()
             elif token.type == TokenType.PULSE:
@@ -729,7 +837,8 @@ class Parser:
                 break
         
         self.expect(TokenType.RBRACE)
-        domain = DomainDeclaration(name=name, soul=soul, purpose=purpose, intent=intent, pulses=pulses)
+        domain = DomainDeclaration(name=name, soul=soul, purpose=purpose, intent=intent, 
+                                   context=context, pulses=pulses)
         # Store pantheon in domain for later reference
         if pantheon:
             domain.pantheon = pantheon
@@ -1041,8 +1150,9 @@ class Parser:
             # Handle identifiers and keywords that can be used as identifiers
             # In expressions, many keywords can act as identifiers
             if token.type in (TokenType.IDENTIFIER, TokenType.VESSEL, TokenType.POTENTIALITY,
-                            TokenType.STATE, TokenType.DRIVE, TokenType.COVENANT, 
-                            TokenType.RESONANCE):
+                            TokenType.POSSIBILITY, TokenType.STATE, TokenType.DRIVE, 
+                            TokenType.COVENANT, TokenType.RESONANCE, TokenType.ALIGNMENT,
+                            TokenType.ASPIRATION, TokenType.COHERENCE):
                 name = self.advance().value
             else:
                 # Fallback - use token value as name
@@ -1079,7 +1189,7 @@ class Parser:
         # Member can be identifier or keyword used as identifier
         member_token = self.current_token()
         if member_token.type in (TokenType.IDENTIFIER, TokenType.STATE, TokenType.DRIVE,
-                                TokenType.VESSEL, TokenType.POTENTIALITY):
+                                TokenType.VESSEL, TokenType.POTENTIALITY, TokenType.POSSIBILITY):
             member = self.advance().value
         else:
             member = self.expect(TokenType.IDENTIFIER).value
