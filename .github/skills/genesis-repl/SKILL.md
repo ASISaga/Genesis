@@ -1,3 +1,8 @@
+---
+name: genesis-repl
+description: Launch the interactive Genesis REPL for exploratory development, testing declarations, and debugging resonance scoring in real-time
+---
+
 # Genesis REPL
 
 Launch the interactive Genesis Read-Eval-Print Loop for exploratory development.
@@ -27,3 +32,4 @@ python3 tools/genesis_repl.py
 - To test individual declarations before writing a full `.gen` file
 - To debug resonance scoring with immediate feedback
 - For developer onboarding and learning the Genesis language
+- For rapid prototyping during Ouroboros evolution cycles

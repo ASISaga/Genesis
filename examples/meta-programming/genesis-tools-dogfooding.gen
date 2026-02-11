@@ -1,0 +1,128 @@
+### Genesis Tool Self-Description Example
+### Demonstrates dogfooding: Genesis describing its own tools
+
+Covenant "Tool_Correctness" {
+    Invariant: "Genesis tools must correctly parse and execute valid Genesis programs"
+    Threshold: 1.0
+}
+
+Covenant "Style_Consistency" {
+    Invariant: "All Genesis code follows 4-space indentation and naming conventions"
+    Threshold: 0.95
+}
+
+Pantheon "Tool_Quality_Reviewers" {
+    Avatar "The_Parser_Expert" {
+        Lineage: "Niklaus_Wirth"
+        Aura: "Language_Design"
+        Vessel: mcp.tool("code_review")
+    }
+    
+    Avatar "The_Style_Guardian" {
+        Lineage: "Bjarne_Stroustrup"
+        Aura: "Code_Quality"
+        Vessel: mcp.tool("static_analysis")
+    }
+}
+
+### Define Genesis Run Tool as a Domain
+Domain "Genesis_CLI_Runner" {
+    Purpose: "Execute Genesis programs and manifest their declared reality"
+    
+    Soul {
+        Possibility: "Any valid Genesis program can be executed"
+        Potentiality: "Infinite creative expressions through declarative programming"
+    }
+    
+    Pulse(Interval: OnDemand) {
+        Watch: FileSystem.Genesis_Programs
+        
+        Deliberate {
+            Proposal: "Parse and execute .gen file"
+            Synthesize {
+                Metric: Alignment(Covenant.Tool_Correctness)
+                Metric: Coherence(Language_Specification)
+            }
+        }
+        
+        Manifest (on Resonance > 0.95) {
+            Execute: Lexer.tokenize()
+            Execute: Parser.build_ast()
+            Execute: Interpreter.execute()
+            Execute: Reporter.output_results()
+        }
+    }
+}
+
+### Define Genesis Formatter as a Domain
+Domain "Genesis_Code_Formatter" {
+    Purpose: "Enforce consistent style across Genesis codebase"
+    
+    Pulse(Interval: OnDemand) {
+        Watch: FileSystem.Genesis_Files
+        
+        Deliberate {
+            Proposal: "Apply formatting rules to Genesis code"
+            Synthesize {
+                Metric: Alignment(Covenant.Style_Consistency)
+            }
+        }
+        
+        Manifest (on Resonance > 0.95) {
+            Execute: Parser.parse_code()
+            Execute: Formatter.normalize_indentation()
+            Execute: Formatter.align_properties()
+            Execute: Formatter.preserve_comments()
+            Execute: Writer.save_formatted_code()
+        }
+    }
+}
+
+### Define Genesis Linter as a Domain
+Domain "Genesis_Static_Analyzer" {
+    Purpose: "Validate Genesis programs for correctness and philosophical alignment"
+    
+    Pulse(Interval: OnDemand) {
+        Watch: FileSystem.Genesis_Files
+        
+        Deliberate {
+            Proposal: "Check Genesis program for issues"
+            Synthesize {
+                Metric: Alignment(Covenant.Tool_Correctness)
+                Metric: Alignment(Covenant.Style_Consistency)
+            }
+        }
+        
+        Manifest (on Resonance > 0.90) {
+            Execute: Linter.check_syntax()
+            Execute: Linter.check_naming_conventions()
+            Execute: Linter.check_structural_completeness()
+            Execute: Linter.check_axiom_alignment()
+            Execute: Reporter.report_issues()
+        }
+    }
+}
+
+### Self-Validation Domain
+Domain "Genesis_Self_Validator" {
+    Purpose: "Validate Genesis tools using Genesis itself"
+    
+    Pulse(Interval: OnCommit) {
+        Watch: VCS.Changed_Genesis_Files
+        
+        Deliberate {
+            Proposal: "Run dogfooding validation loop"
+            Synthesize {
+                Metric: Alignment(Covenant.Tool_Correctness)
+                Metric: Coherence(All_Tools)
+            }
+        }
+        
+        Manifest (on Resonance > 0.95) {
+            Execute: Runner.run_all_examples()
+            Execute: Formatter.format_all_files()
+            Execute: Linter.lint_all_files()
+            Execute: Tester.validate_outputs()
+        }
+    }
+}
