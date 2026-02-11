@@ -87,25 +87,25 @@ Covenant "Safety_First" {
 Pantheon "Language_Evolution_Council" {
     Avatar "The_Language_Theorist" {
         Lineage: "Alan_Turing"
-        Aura: "Computational_Theory"
+        Essence: "Computational_Theory"
         Vessel: mcp.tool("formal_verification")
     }
     
     Avatar "The_Pragmatic_Designer" {
         Lineage: "Dennis_Ritchie"
-        Aura: "Practical_Elegance"
+        Essence: "Practical_Elegance"
         Vessel: mcp.tool("usability_analysis")
     }
     
     Avatar "The_Safety_Guardian" {
         Lineage: "Barbara_Liskov"
-        Aura: "Type_Safety"
+        Essence: "Type_Safety"
         Vessel: mcp.tool("invariant_checker")
     }
     
     Avatar "The_Visionary" {
         Lineage: "Douglas_Engelbart"
-        Aura: "Human_Computer_Augmentation"
+        Essence: "Human_Computer_Augmentation"
         Vessel: mcp.tool("impact_assessment")
     }
 }

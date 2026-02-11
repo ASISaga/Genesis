@@ -168,31 +168,31 @@ The council that deliberates on evolution proposals:
 Pantheon "Language_Evolution_Council" {
     Avatar "The_Language_Theorist" {
         Lineage: "Alan_Turing"
-        Aura: "Computational_Theory"
+        Essence: "Computational_Theory"
         Weight: 1.5  # Higher weight for formal correctness
     }
     
     Avatar "The_Pragmatic_Designer" {
         Lineage: "Dennis_Ritchie"
-        Aura: "Practical_Elegance"
+        Essence: "Practical_Elegance"
         Weight: 1.0
     }
     
     Avatar "The_Safety_Guardian" {
         Lineage: "Barbara_Liskov"
-        Aura: "Type_Safety"
+        Essence: "Type_Safety"
         Weight: 1.5  # Higher weight for safety concerns
     }
     
     Avatar "The_Visionary" {
         Lineage: "Douglas_Engelbart"
-        Aura: "Human_Augmentation"
+        Essence: "Human_Augmentation"
         Weight: 1.0
     }
     
     Avatar "The_Ethicist" {
         Lineage: "Margaret_Hamilton"
-        Aura: "Reliability_Engineering"
+        Essence: "Reliability_Engineering"
         Weight: 1.2
     }
 }

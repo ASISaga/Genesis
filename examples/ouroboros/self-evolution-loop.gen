@@ -86,7 +86,6 @@ Domain "Evolution_Proposer" {
         Watch: Vessel.Identified_Needs
         
         Deliberate {
-            
             Synthesize {
                 Metric: Alignment(Covenant.Philosophical_Coherence)
             }
@@ -107,7 +106,6 @@ Domain "Evolution_Deliberator" {
         Watch: Vessel.New_Proposals
         
         Deliberate {
-            
             Synthesize {
                 Metric: Alignment(Covenant.Essence_Preservation)
                 Metric: Alignment(Covenant.Backwards_Compatibility)
@@ -132,7 +130,6 @@ Domain "Evolution_Validator" {
         Watch: Vessel.Approved_Proposals
         
         Deliberate {
-            
             Synthesize {
                 Metric: Alignment(Covenant.Backwards_Compatibility)
                 Metric: Alignment(Covenant.Safety_First)
@@ -155,7 +152,6 @@ Domain "Evolution_Integrator" {
         Watch: Vessel.Validated_Changes
         
         Deliberate {
-            
             Synthesize {
                 Metric: Alignment(Covenant.Essence_Preservation)
             }
@@ -178,7 +174,6 @@ Domain "Evolution_Reflector" {
         Watch: Vessel.Integrated_Changes
         
         Deliberate {
-            
             Synthesize {
                 Metric: Alignment(Covenant.Essence_Preservation)
             }
@@ -201,7 +196,6 @@ Domain "Evolution_Rollback" {
         Watch: Vessel.Test_Failures
         
         Deliberate {
-            
             Synthesize {
                 Metric: Alignment(Covenant.Safety_First)
             }

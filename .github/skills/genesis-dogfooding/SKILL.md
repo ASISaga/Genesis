@@ -72,19 +72,19 @@ Use Pantheon of legendary developers to review Genesis code:
 Pantheon "Genesis_Code_Reviewers" {
     Avatar "The_Language_Designer" {
         Lineage: "Guido_van_Rossum"
-        Aura: "Language_Design"
+        Essence: "Language_Design"
         Vessel: mcp.tool("code_review")
     }
     
     Avatar "The_Philosopher" {
         Lineage: "Edsger_Dijkstra"
-        Aura: "Formal_Methods"
+        Essence: "Formal_Methods"
         Vessel: mcp.tool("static_analysis")
     }
     
     Avatar "The_Pragmatist" {
         Lineage: "Rob_Pike"
-        Aura: "Simplicity"
+        Essence: "Simplicity"
         Vessel: mcp.tool("complexity_analysis")
     }
 }
