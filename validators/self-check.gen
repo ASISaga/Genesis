@@ -1,0 +1,129 @@
+### [GENESIS: SELF-VALIDATION EXAMPLE] ###
+### Demonstrates Genesis validating Genesis programs ###
+
+# Validation Covenants
+Covenant "Syntactic_Correctness" {
+    Invariant: "All declarations follow grammar specification"
+    Threshold: 1.0
+}
+
+Covenant "Semantic_Completeness" {
+    Invariant: "All required fields are present in declarations"
+    Threshold: 1.0
+}
+
+Covenant "Philosophical_Alignment" {
+    Invariant: "Code embodies the five axioms"
+    Threshold: 0.95
+}
+
+# Code Quality Review Pantheon
+Pantheon "Code_Quality_Reviewers" {
+    Avatar "Grammar_Expert" {
+        Lineage: "Noam_Chomsky"
+        Essence: "Formal_Language_Theory"
+        Vessel: mcp.provider("Syntax_Checker")
+    }
+    
+    Avatar "Semanticist" {
+        Lineage: "Alfred_Tarski"
+        Essence: "Formal_Semantics"
+        Vessel: mcp.provider("Semantic_Analyzer")
+    }
+    
+    Avatar "Philosopher" {
+        Lineage: "Ludwig_Wittgenstein"
+        Essence: "Language_Philosophy"
+        Vessel: mcp.provider("Alignment_Checker")
+    }
+}
+
+# Syntax Validation Domain
+Domain "Syntax_Validator" {
+    Intent: "Ensure Genesis programs follow EBNF grammar specification"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Genesis_Files
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Syntactic_Correctness)
+            }
+        }
+        
+        Manifest (on Resonance > 0.99) {
+            Execute: Vessel.Lexer.tokenize()
+            Execute: Vessel.Parser.build_ast()
+            Execute: Vessel.Validator.check_grammar_compliance()
+        }
+    }
+}
+
+# Semantic Validation Domain
+Domain "Semantic_Validator" {
+    Intent: "Ensure Genesis programs are semantically complete and coherent"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Parsed_Programs
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Semantic_Completeness)
+            }
+        }
+        
+        Manifest (on Resonance > 0.99) {
+            Execute: Vessel.Validator.check_covenant_structure()
+            Execute: Vessel.Validator.check_avatar_structure()
+            Execute: Vessel.Validator.check_domain_structure()
+            Execute: Vessel.Validator.check_pulse_completeness()
+        }
+    }
+}
+
+# Philosophical Alignment Validation Domain
+Domain "Alignment_Validator" {
+    Intent: "Ensure Genesis programs embody the five axioms"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Valid_Programs
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Philosophical_Alignment)
+            }
+        }
+        
+        Manifest (on Resonance > 0.95) {
+            Execute: Vessel.Analyzer.check_purpose_axiom()
+            Execute: Vessel.Analyzer.check_possibility_axiom()
+            Execute: Vessel.Analyzer.check_potentiality_axiom()
+            Execute: Vessel.Analyzer.check_essence_axiom()
+            Execute: Vessel.Analyzer.check_manifestation_axiom()
+        }
+    }
+}
+
+# Final Validation Report Domain
+Domain "Validation_Reporter" {
+    Intent: "Generate comprehensive validation report"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Completed_Checks
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Syntactic_Correctness)
+                Metric: Alignment(Covenant.Semantic_Completeness)
+                Metric: Alignment(Covenant.Philosophical_Alignment)
+            }
+        }
+        
+        Manifest (on Resonance > 0.80) {
+            Execute: Vessel.Reporter.aggregate_results()
+            Execute: Vessel.Reporter.calculate_quality_score()
+            Execute: Vessel.Reporter.generate_recommendations()
+        }
+    }
+}
+

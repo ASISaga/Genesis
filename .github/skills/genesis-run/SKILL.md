@@ -1,3 +1,8 @@
+---
+name: genesis-run
+description: Execute Genesis programs using the reference interpreter to validate program correctness and test language features
+---
+
 # Genesis Run
 
 Execute Genesis programs using the reference interpreter.
@@ -36,3 +41,4 @@ python3 tools/genesis.py run examples/compliant-ai-system.gen
 - To validate that `.gen` programs execute correctly
 - To test new language features end-to-end
 - To verify that changes to the parser or interpreter don't break existing programs
+- When dogfooding Genesis on itself for meta-programming validation
