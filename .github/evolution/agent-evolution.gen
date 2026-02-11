@@ -1,0 +1,260 @@
+### [GENESIS: AGENT SELF-EVOLUTION] ###
+### Agents learn and improve through each execution cycle ###
+
+# Import Evolution Covenants
+# (In full implementation, would reference evolution-covenants.gen)
+
+Covenant "Purpose_Preservation" {
+    Invariant: "Agent evolution must preserve core purpose and capabilities"
+    Threshold: 1.0
+}
+
+Covenant "User_Trust" {
+    Invariant: "Self-modification maintains user trust through transparency"
+    Threshold: 0.98
+}
+
+# Evolution Pantheon
+Pantheon "Agent_Evolution_Council" {
+    Avatar "Effectiveness_Evaluator" {
+        Lineage: "Peter_Drucker"
+        Essence: "Management_Effectiveness"
+        Vessel: mcp.provider("Effectiveness_Metrics")
+    }
+    
+    Avatar "Quality_Guardian" {
+        Lineage: "W_Edwards_Deming"
+        Essence: "Continuous_Improvement"
+        Vessel: mcp.provider("Quality_Analyzer")
+    }
+    
+    Avatar "Adaptation_Specialist" {
+        Lineage: "Charles_Darwin"
+        Essence: "Adaptive_Evolution"
+        Vessel: mcp.provider("Pattern_Recognition")
+    }
+}
+
+# OBSERVE: Track Agent Performance
+Domain "Agent_Performance_Observer" {
+    Intent: "Monitor agent execution patterns and outcomes"
+    
+    Soul Potentiality {
+        State: Observing
+        Drive: "Agents can continuously improve through self-awareness"
+        Aspiration_Weight: 0.90
+    }
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Agent_Invocations
+        Watch: Vessel.Task_Outcomes
+        Watch: Vessel.User_Feedback
+        Watch: Vessel.Execution_Metrics
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Purpose_Preservation)
+            }
+        }
+        
+        Manifest (on Resonance > 0.70) {
+            Execute: Vessel.Metrics.record_invocation()
+            Execute: Vessel.Metrics.calculate_success_rate()
+            Execute: Vessel.Metrics.track_execution_time()
+            Execute: Vessel.Knowledge.update_metrics()
+            Update: Potentiality.State
+        }
+    }
+}
+
+# ANALYZE: Identify Improvement Opportunities
+Domain "Agent_Pattern_Analyzer" {
+    Intent: "Discover patterns in agent performance for improvement"
+    
+    Soul Potentiality {
+        State: Analyzing
+        Drive: "Deep patterns emerge from accumulated experience"
+        Aspiration_Weight: 0.85
+    }
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Accumulated_Metrics
+        Watch: Vessel.Success_Patterns
+        Watch: Vessel.Failure_Patterns
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Purpose_Preservation)
+                Metric: Coherence(Historical_Performance)
+            }
+        }
+        
+        Manifest (on Resonance > 0.75) {
+            Execute: Vessel.Analyzer.identify_success_patterns()
+            Execute: Vessel.Analyzer.identify_failure_antipatterns()
+            Execute: Vessel.Analyzer.detect_context_correlations()
+            Execute: Vessel.Knowledge.record_learnings()
+            Update: Potentiality.State
+        }
+    }
+}
+
+# PROPOSE: Generate Evolution Proposals
+Domain "Agent_Evolution_Proposer" {
+    Intent: "Create validated proposals for agent improvement"
+    
+    Soul Potentiality {
+        State: Proposing
+        Drive: "Every insight can manifest as actionable improvement"
+        Aspiration_Weight: 0.90
+    }
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Identified_Patterns
+        Watch: Vessel.Performance_Gaps
+        Watch: Vessel.User_Needs
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Purpose_Preservation)
+                Metric: Alignment(Covenant.User_Trust)
+                Metric: Alignment(Covenant.Safety_First)
+            }
+        }
+        
+        Manifest (on Resonance > 0.85) {
+            Execute: Vessel.Proposer.generate_prompt_refinement()
+            Execute: Vessel.Proposer.suggest_tool_additions()
+            Execute: Vessel.Proposer.recommend_expertise_expansion()
+            Execute: Vessel.Proposer.create_evolution_proposal()
+            Update: Potentiality.State
+        }
+    }
+}
+
+# DELIBERATE: Evaluate Proposals
+Domain "Agent_Evolution_Deliberator" {
+    Intent: "Score evolution proposals through pantheon consensus"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Evolution_Proposals
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Purpose_Preservation)
+                Metric: Alignment(Covenant.User_Trust)
+                Metric: Alignment(Covenant.Safety_First)
+                Metric: Aspiration(Potentiality.Continuous_Improvement)
+            }
+        }
+        
+        Manifest (on Resonance > 0.90) {
+            Execute: Vessel.Council.score_proposal()
+            Execute: Vessel.Calculator.compute_resonance()
+            Execute: Vessel.Validator.check_covenant_compliance()
+            Execute: Vessel.Decider.approve_or_reject()
+        }
+    }
+}
+
+# VALIDATE: Test Proposed Changes
+Domain "Agent_Change_Validator" {
+    Intent: "Validate proposed agent modifications for safety and effectiveness"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Approved_Proposals
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Purpose_Preservation)
+                Metric: Alignment(Covenant.Safety_First)
+                Metric: Alignment(Covenant.Rollback_Capability)
+            }
+        }
+        
+        Manifest (on Resonance > 0.95) {
+            Execute: Vessel.Validator.simulate_agent_behavior()
+            Execute: Vessel.Validator.check_purpose_preservation()
+            Execute: Vessel.Validator.verify_safety_constraints()
+            Execute: Vessel.Validator.test_with_historical_tasks()
+        }
+    }
+}
+
+# INTEGRATE: Apply Validated Changes
+Domain "Agent_Evolution_Integrator" {
+    Intent: "Safely apply validated agent improvements"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Validated_Changes
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Purpose_Preservation)
+                Metric: Alignment(Covenant.User_Trust)
+            }
+        }
+        
+        Manifest (on Resonance > 0.98) {
+            Execute: Vessel.Backup.create_rollback_point()
+            Execute: Vessel.Integrator.update_agent_definition()
+            Execute: Vessel.Integrator.update_prompt_instructions()
+            Execute: Vessel.Integrator.update_tool_list()
+            Execute: Vessel.Knowledge.record_evolution()
+            Execute: Vessel.Logger.log_change()
+        }
+    }
+}
+
+# REFLECT: Measure Evolution Impact
+Domain "Agent_Evolution_Reflector" {
+    Intent: "Track and learn from agent evolution outcomes"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Integrated_Changes
+        Watch: Vessel.Post_Evolution_Metrics
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Knowledge_Integrity)
+                Metric: Improvement(Performance_Metrics)
+            }
+        }
+        
+        Manifest (on Resonance > 0.70) {
+            Execute: Vessel.Metrics.measure_impact()
+            Execute: Vessel.Metrics.compare_to_baseline()
+            Execute: Vessel.Knowledge.document_learnings()
+            Execute: Vessel.Knowledge.update_success_patterns()
+            Execute: Vessel.Reporter.notify_evolution_complete()
+        }
+    }
+}
+
+# ROLLBACK: Safety Net for Failed Evolutions
+Domain "Agent_Evolution_Rollback" {
+    Intent: "Revert problematic agent changes"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Performance_Degradation
+        Watch: Vessel.Safety_Violations
+        Watch: Vessel.User_Complaints
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Safety_First)
+                Metric: Alignment(Covenant.Rollback_Capability)
+            }
+        }
+        
+        Manifest (on Resonance > 0.99) {
+            Execute: Vessel.Backup.restore_previous_version()
+            Execute: Vessel.Logger.record_rollback()
+            Execute: Vessel.Knowledge.mark_proposal_failed()
+            Execute: Vessel.Reporter.notify_rollback()
+        }
+    }
+}
+
+### The Ouroboros Loop: Results feed back into Agent_Performance_Observer ###
+### This creates eternal cycles of safe, measured self-improvement ###
