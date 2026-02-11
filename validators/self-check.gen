@@ -1,8 +1,9 @@
-### Genesis Self-Validation Program
-### Validates Genesis programs using Genesis itself
+### [GENESIS: SELF-VALIDATION EXAMPLE] ###
+### Demonstrates Genesis validating Genesis programs ###
 
+# Validation Covenants
 Covenant "Syntactic_Correctness" {
-    Invariant: "All declarations follow grammar.md EBNF specification"
+    Invariant: "All declarations follow grammar specification"
     Threshold: 1.0
 }
 
@@ -12,149 +13,117 @@ Covenant "Semantic_Completeness" {
 }
 
 Covenant "Philosophical_Alignment" {
-    Invariant: "Code embodies the five axioms: Purpose, Possibility, Potentiality, Essence, Manifestation"
+    Invariant: "Code embodies the five axioms"
     Threshold: 0.95
 }
 
-Covenant "Naming_Conventions" {
-    Invariant: "PascalCase for keywords, Snake_Case for identifiers"
-    Threshold: 0.90
-}
-
+# Code Quality Review Pantheon
 Pantheon "Code_Quality_Reviewers" {
-    Avatar "The_Grammar_Expert" {
+    Avatar "Grammar_Expert" {
         Lineage: "Noam_Chomsky"
-        Aura: "Formal_Languages"
-        Vessel: mcp.tool("syntax_checker")
+        Essence: "Formal_Language_Theory"
+        Vessel: mcp.provider("Syntax_Checker")
     }
     
-    Avatar "The_Semanticist" {
+    Avatar "Semanticist" {
         Lineage: "Alfred_Tarski"
-        Aura: "Formal_Semantics"
-        Vessel: mcp.tool("semantic_analyzer")
+        Essence: "Formal_Semantics"
+        Vessel: mcp.provider("Semantic_Analyzer")
     }
     
-    Avatar "The_Philosopher" {
+    Avatar "Philosopher" {
         Lineage: "Ludwig_Wittgenstein"
-        Aura: "Language_Philosophy"
-        Vessel: mcp.tool("alignment_checker")
+        Essence: "Language_Philosophy"
+        Vessel: mcp.provider("Alignment_Checker")
     }
 }
 
-### Validate Syntax
+# Syntax Validation Domain
 Domain "Syntax_Validator" {
-    Purpose: "Ensure Genesis programs follow EBNF grammar specification"
+    Intent: "Ensure Genesis programs follow EBNF grammar specification"
     
-    Pulse(Interval: OnDemand) {
-        Watch: FileSystem.Genesis_Files
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Genesis_Files
         
         Deliberate {
-            Proposal: "Validate syntax against grammar specification"
             Synthesize {
                 Metric: Alignment(Covenant.Syntactic_Correctness)
             }
         }
         
         Manifest (on Resonance > 0.99) {
-            Execute: Lexer.tokenize()
-            Execute: Parser.build_ast()
-            Execute: Validator.check_grammar_compliance()
-            Execute: Reporter.log_syntax_issues()
+            Execute: Vessel.Lexer.tokenize()
+            Execute: Vessel.Parser.build_ast()
+            Execute: Vessel.Validator.check_grammar_compliance()
         }
     }
 }
 
-### Validate Semantics
+# Semantic Validation Domain
 Domain "Semantic_Validator" {
-    Purpose: "Ensure Genesis programs are semantically complete and coherent"
+    Intent: "Ensure Genesis programs are semantically complete and coherent"
     
-    Pulse(Interval: OnDemand) {
-        Watch: Syntax_Validator.Validated_Programs
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Parsed_Programs
         
         Deliberate {
-            Proposal: "Validate semantic completeness"
             Synthesize {
                 Metric: Alignment(Covenant.Semantic_Completeness)
             }
         }
         
         Manifest (on Resonance > 0.99) {
-            Execute: Validator.check_covenant_structure()
-            Execute: Validator.check_avatar_structure()
-            Execute: Validator.check_domain_structure()
-            Execute: Validator.check_pulse_completeness()
-            Execute: Reporter.log_semantic_issues()
+            Execute: Vessel.Validator.check_covenant_structure()
+            Execute: Vessel.Validator.check_avatar_structure()
+            Execute: Vessel.Validator.check_domain_structure()
+            Execute: Vessel.Validator.check_pulse_completeness()
         }
     }
 }
 
-### Validate Philosophical Alignment
+# Philosophical Alignment Validation Domain
 Domain "Alignment_Validator" {
-    Purpose: "Ensure Genesis programs embody the five axioms"
+    Intent: "Ensure Genesis programs embody the five axioms"
     
-    Pulse(Interval: OnDemand) {
-        Watch: Semantic_Validator.Valid_Programs
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Valid_Programs
         
         Deliberate {
-            Proposal: "Validate philosophical alignment"
             Synthesize {
                 Metric: Alignment(Covenant.Philosophical_Alignment)
             }
         }
         
         Manifest (on Resonance > 0.95) {
-            Execute: Analyzer.check_purpose_axiom()
-            Execute: Analyzer.check_possibility_axiom()
-            Execute: Analyzer.check_potentiality_axiom()
-            Execute: Analyzer.check_essence_axiom()
-            Execute: Analyzer.check_manifestation_axiom()
-            Execute: Reporter.log_alignment_issues()
+            Execute: Vessel.Analyzer.check_purpose_axiom()
+            Execute: Vessel.Analyzer.check_possibility_axiom()
+            Execute: Vessel.Analyzer.check_potentiality_axiom()
+            Execute: Vessel.Analyzer.check_essence_axiom()
+            Execute: Vessel.Analyzer.check_manifestation_axiom()
         }
     }
 }
 
-### Validate Naming Conventions
-Domain "Style_Validator" {
-    Purpose: "Ensure Genesis programs follow naming conventions"
-    
-    Pulse(Interval: OnDemand) {
-        Watch: Alignment_Validator.Aligned_Programs
-        
-        Deliberate {
-            Proposal: "Validate naming and style conventions"
-            Synthesize {
-                Metric: Alignment(Covenant.Naming_Conventions)
-            }
-        }
-        
-        Manifest (on Resonance > 0.90) {
-            Execute: Validator.check_keyword_casing()
-            Execute: Validator.check_identifier_casing()
-            Execute: Validator.check_indentation()
-            Execute: Reporter.log_style_issues()
-        }
-    }
-}
-
-### Final Validation Report
+# Final Validation Report Domain
 Domain "Validation_Reporter" {
-    Purpose: "Generate comprehensive validation report"
+    Intent: "Generate comprehensive validation report"
     
-    Pulse(Interval: AfterValidation) {
-        Watch: Style_Validator.Completed_Checks
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Completed_Checks
         
         Deliberate {
-            Proposal: "Compile validation results"
             Synthesize {
-                Metric: Coherence(All_Validation_Results)
+                Metric: Alignment(Covenant.Syntactic_Correctness)
+                Metric: Alignment(Covenant.Semantic_Completeness)
+                Metric: Alignment(Covenant.Philosophical_Alignment)
             }
         }
         
         Manifest (on Resonance > 0.80) {
-            Execute: Reporter.aggregate_results()
-            Execute: Reporter.calculate_quality_score()
-            Execute: Reporter.generate_recommendations()
-            Execute: Reporter.output_final_report()
+            Execute: Vessel.Reporter.aggregate_results()
+            Execute: Vessel.Reporter.calculate_quality_score()
+            Execute: Vessel.Reporter.generate_recommendations()
         }
     }
 }
+
