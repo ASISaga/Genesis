@@ -15,13 +15,13 @@ Pantheon "Energy_Sages" {
         Essence: "Electromagnetic_Mastery"
         Vessel: mcp.provider("Grid_Analytics_Engine")
     }
-    
+
     Avatar "Ecologist" {
         Lineage: "Rachel_Carson"
         Essence: "Environmental_Stewardship"
         Vessel: mcp.provider("Environmental_Monitor")
     }
-    
+
     Avatar "Economist" {
         Lineage: "John_Maynard_Keynes"
         Essence: "Resource_Efficiency"
@@ -31,7 +31,7 @@ Pantheon "Energy_Sages" {
 
 Domain "Smart_Grid_Management" {
     Intent: "Optimize global energy distribution for sustainability and access"
-    
+
     # Define potentiality for creative solutions
     Soul Potentiality {
         State: Exploring
@@ -45,29 +45,29 @@ Domain "Smart_Grid_Management" {
         Watch: Vessel.Grid_Sensors
         Watch: Vessel.Weather_Patterns
         Watch: Vessel.Demand_Forecasts
-        
+
         Deliberate {
             # Evaluate current state
             Analysis: Vessel.Grid_Analytics.assess_load()
-            
+
             # Generate proposals
             Proposal "Solar_Shift" {
                 Strategy: "Route excess solar to storage"
                 Priority: High
             }
-            
+
             Proposal "Demand_Balance" {
                 Strategy: "Incentivize off-peak usage"
                 Priority: Medium
             }
-            
+
             # Synthesize through pantheon wisdom
             Synthesize {
                 Metric: Alignment(Covenant.Ecological_Balance)
                 Metric: Aspiration(Potentiality.Dream_Cycle)
             }
         }
-        
+
         # Execute only when high resonance achieved
         Manifest (on Resonance > 0.96) {
             # The AOS selects the highest-scoring proposal from Deliberate block
