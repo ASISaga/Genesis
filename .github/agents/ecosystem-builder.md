@@ -46,7 +46,7 @@ The agent evolves through cycles defined in `.github/evolution/agent-evolution.g
 
 ## Guidelines
 
-- New avatars must include `Lineage`, `Aura`, and `Vessel` declarations
+- New avatars must include `Lineage`, `Essence`, and `Vessel` declarations
 - New covenants must include `Invariant` and `Threshold` declarations
 - New domain templates must include a complete Pulse cycle
 - Examples should be self-contained and executable: `python3 tools/genesis.py run examples/<file>.gen`
@@ -88,3 +88,12 @@ stdlib/
 - `docs/` — All documentation
 - `DEVELOPER_ONBOARDING.md` — Setup guide
 - `CONTRIBUTING.md` — Contribution guidelines
+
+## Dogfooding & Ouroboros
+
+When adding or modifying tools:
+
+- **Dogfood first**: Express the tool as a Genesis Domain before or alongside implementation. See `examples/meta-programming/genesis-tools-dogfooding.gen`.
+- **Development lifecycle**: Ensure changes align with the Genesis development lifecycle declared in `examples/meta-programming/genesis-development-lifecycle.gen`.
+- **Self-evolution**: Hook new tools into the Ouroboros cycle so they can self-improve through the knowledge base in `.github/knowledge/`.
+- **Review prompt**: Use `.github/prompts/dogfooding-review.prompt.md` to verify dogfooding alignment.

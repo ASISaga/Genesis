@@ -32,7 +32,7 @@ Covenant "[Ethical_Boundary]" {
 Pantheon "[Council_Name]" {
     Avatar "[Role]" {
         Lineage: "[Historical_Figure]"
-        Aura: "[Expertise]"
+        Essence: "[Expertise]"
         Vessel: mcp.tool("[Tool]")
     }
 }

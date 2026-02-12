@@ -66,3 +66,9 @@ The agent evolves through cycles defined in `.github/evolution/agent-evolution.g
 - `stdlib/covenants/` — Standard covenant definitions
 - `docs/compliance/` — Compliance documentation
 - `spec/language-specification.md` — Covenant language semantics
+
+## Dogfooding & Ouroboros
+
+- **Covenants govern evolution**: All changes must satisfy evolutionary covenants defined in `.github/evolution/evolution-covenants.gen`.
+- **Dogfooding review**: Use `.github/prompts/dogfooding-review.prompt.md` to verify that changes can be expressed in Genesis and are bounded by Covenants.
+- **Self-learning**: Review outcomes are tracked in `.github/knowledge/covenant-guardian/` and feed back into the Ouroboros cycle.

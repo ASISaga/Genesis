@@ -154,6 +154,35 @@ When proposing language changes, consider:
 4. **Resonance Alignment**: Does it support consensus-based decision making?
 5. **Infinite Possibility**: Does it allow for creative transcendence?
 
+## Dogfooding & Ouroboros Practices
+
+Genesis uses itself to describe its own development. When contributing:
+
+### Dogfooding
+
+- **Express tools as Domains**: If you add a new tool, create a `.gen`
+  program in `examples/meta-programming/` that declares it as a Domain
+  with Covenants and a Pulse cycle.
+- **Quality as Covenants**: Encode quality standards as Covenants rather
+  than informal guidelines.
+- **Review as Pantheon**: Use Pantheon consensus patterns for code review
+  criteria.
+- **Reference programs**: See `examples/meta-programming/genesis-tools-dogfooding.gen`
+  and `examples/meta-programming/genesis-development-lifecycle.gen`.
+
+### Ouroboros Self-Evolution
+
+All changes follow the six-phase Ouroboros cycle:
+
+1. **Observe**: Identify improvement needs from usage and feedback
+2. **Propose**: Draft changes as Genesis programs first, then implement
+3. **Deliberate**: Evaluate through multi-perspective review (Pantheon consensus)
+4. **Validate**: Verify backwards compatibility and covenant preservation
+5. **Integrate**: Apply approved changes across grammar, parser, interpreter, and docs
+6. **Reflect**: Measure impact and feed learnings into the knowledge base
+
+See `docs/design/dogfooding.md` for the complete guide.
+
 ## Code of Conduct
 
 ### Our Pledge
