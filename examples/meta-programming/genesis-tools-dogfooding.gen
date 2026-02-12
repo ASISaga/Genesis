@@ -1,5 +1,6 @@
 ### [GENESIS: DOGFOODING EXAMPLE] ###
 ### Genesis describing its own tools through declarative programming ###
+### Every Genesis tool is expressed as a Domain with Covenants and Pulse cycles ###
 
 # Covenants for tool quality
 Covenant "Tool_Correctness" {
@@ -12,6 +13,11 @@ Covenant "Style_Consistency" {
     Threshold: 0.95
 }
 
+Covenant "User_Experience" {
+    Invariant: "Genesis tools must provide clear feedback and helpful error messages"
+    Threshold: 0.90
+}
+
 # Pantheon of code quality experts
 Pantheon "Tool_Quality_Reviewers" {
     Avatar "Parser_Expert" {
@@ -19,34 +25,39 @@ Pantheon "Tool_Quality_Reviewers" {
         Essence: "Language_Design_Excellence"
         Vessel: mcp.provider("Code_Review_Engine")
     }
-    
+
     Avatar "Style_Guardian" {
         Lineage: "Bjarne_Stroustrup"
         Essence: "Code_Quality_Standards"
         Vessel: mcp.provider("Static_Analysis_Engine")
+    }
+
+    Avatar "UX_Advocate" {
+        Lineage: "Donald_Norman"
+        Essence: "Human_Centered_Design"
+        Vessel: mcp.provider("Usability_Analysis_Engine")
     }
 }
 
 # Genesis CLI Runner defined as a Domain
 Domain "Genesis_CLI_Runner" {
     Intent: "Execute Genesis programs and manifest their declared reality"
-    
+
     Soul Potentiality {
         State: Active
         Drive: "Enable infinite creative expressions through declarative programming"
         Aspiration_Weight: 0.95
     }
-    
+
     Pulse(Interval: RealTime) {
         Watch: Vessel.Genesis_File_System
-        
+
         Deliberate {
-            # Synthesize through tool quality standards
             Synthesize {
                 Metric: Alignment(Covenant.Tool_Correctness)
             }
         }
-        
+
         Manifest (on Resonance > 0.95) {
             Execute: Vessel.Lexer.tokenize()
             Execute: Vessel.Parser.build_ast()
@@ -59,16 +70,16 @@ Domain "Genesis_CLI_Runner" {
 # Genesis Formatter defined as a Domain
 Domain "Genesis_Code_Formatter" {
     Intent: "Enforce consistent style across Genesis codebase"
-    
+
     Pulse(Interval: RealTime) {
         Watch: Vessel.Genesis_Source_Files
-        
+
         Deliberate {
             Synthesize {
                 Metric: Alignment(Covenant.Style_Consistency)
             }
         }
-        
+
         Manifest (on Resonance > 0.95) {
             Execute: Vessel.Parser.parse_code()
             Execute: Vessel.Formatter.normalize_indentation()
@@ -81,17 +92,17 @@ Domain "Genesis_Code_Formatter" {
 # Genesis Linter defined as a Domain
 Domain "Genesis_Static_Analyzer" {
     Intent: "Validate Genesis programs for correctness and philosophical alignment"
-    
+
     Pulse(Interval: RealTime) {
         Watch: Vessel.Genesis_Files
-        
+
         Deliberate {
             Synthesize {
                 Metric: Alignment(Covenant.Tool_Correctness)
                 Metric: Alignment(Covenant.Style_Consistency)
             }
         }
-        
+
         Manifest (on Resonance > 0.90) {
             Execute: Vessel.Linter.check_syntax()
             Execute: Vessel.Linter.check_naming_conventions()
@@ -101,3 +112,58 @@ Domain "Genesis_Static_Analyzer" {
     }
 }
 
+# Genesis REPL defined as a Domain
+Domain "Genesis_Interactive_REPL" {
+    Intent: "Provide an interactive environment for exploring Genesis declarations"
+
+    Soul Potentiality {
+        State: Exploring
+        Drive: "Enable real-time discovery and experimentation with Genesis constructs"
+        Aspiration_Weight: 0.90
+    }
+
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.User_Input
+
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Tool_Correctness)
+                Metric: Alignment(Covenant.User_Experience)
+            }
+        }
+
+        Manifest (on Resonance > 0.85) {
+            Execute: Vessel.Parser.parse_input()
+            Execute: Vessel.Interpreter.evaluate()
+            Execute: Vessel.Console.display_result()
+            Update: Potentiality.State
+        }
+    }
+}
+
+# Genesis Package Manager defined as a Domain
+Domain "Genesis_Package_Manager" {
+    Intent: "Discover, share, and manage reusable Genesis declarations"
+
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Package_Registry
+        Watch: Vessel.Project_Dependencies
+
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Tool_Correctness)
+                Metric: Alignment(Covenant.User_Experience)
+            }
+        }
+
+        Manifest (on Resonance > 0.90) {
+            Execute: Vessel.Registry.search_packages()
+            Execute: Vessel.Resolver.resolve_dependencies()
+            Execute: Vessel.Installer.install_declarations()
+        }
+    }
+}
+
+# This program demonstrates dogfooding: Genesis tools described in Genesis
+# Each tool is a Domain with its own Pulse cycle, governed by shared Covenants
+# The Pantheon of reviewers evaluates all tools through consensus scoring

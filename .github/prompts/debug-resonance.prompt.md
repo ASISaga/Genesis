@@ -27,7 +27,7 @@ Where:
 1. Run the program: `python3 tools/genesis.py run <file.gen>`
 2. Check the interpreter output for resonance scores
 3. Verify the Synthesize block references the correct covenants
-4. Confirm all avatars have valid Lineage, Aura, and Vessel declarations
+4. Confirm all avatars have valid Lineage, Essence, and Vessel declarations
 5. Check threshold values are appropriate (not too high for the number of avatars)
 
 ## Key Files

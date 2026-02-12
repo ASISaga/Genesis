@@ -11,10 +11,11 @@ Create a new Avatar for the Genesis standard library.
 ## Requirements
 
 1. The avatar must be defined in a new `.gen` file in `stdlib/avatars/`
-2. The file must include `Lineage`, `Aura`, and `Vessel` declarations
+2. The file must include `Lineage`, `Essence`, and `Vessel` declarations
 3. The avatar's essence must align with at least one existing Covenant
 4. Include a block comment explaining the historical figure's relevance to ASI
 5. Follow the naming convention: `snake_case.gen` for the filename, `PascalCase` for identifiers
+6. Consider how this avatar contributes to dogfooding — can it evaluate Genesis itself?
 
 ## Template
 
@@ -25,7 +26,7 @@ Create a new Avatar for the Genesis standard library.
 
 Avatar "[Title]" {
     Lineage: "[Historical_Figure]"
-    Aura: "[Domain_of_Expertise]"
+    Essence: "[Domain_of_Expertise]"
     Vessel: mcp.tool("[Tool_Name]")
 }
 ```

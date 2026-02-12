@@ -35,7 +35,7 @@ Covenant "Name" {
 ```genesis
 Avatar "Title" {
     Lineage: "Historical_Figure"
-    Aura: "Domain_of_Expertise"
+    Essence: "Domain_of_Expertise"
     Vessel: mcp.tool("Tool_Name")
 }
 ```
@@ -84,3 +84,48 @@ Actions: `Watch`, `Deliberate`, `Synthesize`, `Manifest`, `Decree`, `Execute`
 Properties: `Lineage`, `Aura`, `Vessel`, `Essence`, `Intent`, `Threshold`, `Invariant`
 Metrics: `Alignment`, `Aspiration`, `Coherence`, `Resonance`
 Possibility: `Possibility`, `Potentiality`, `Declaration`, `Opening`, `Nothing`, `Void`, `Freedom`
+
+## Dogfooding Patterns
+
+Genesis programs can describe Genesis itself — tools, processes, and evolution:
+
+- **Tool as Domain**: Express each tool (CLI, formatter, linter) as a Domain with a Pulse cycle
+- **Quality as Covenant**: Encode tool quality standards as immutable Covenants
+- **Review as Pantheon**: Create expert councils that evaluate Genesis code quality
+- **Self-validation**: Use Genesis programs to validate other Genesis programs
+
+```genesis
+# Example: Describing the Genesis formatter as a Domain
+Domain "Genesis_Code_Formatter" {
+    Intent: "Enforce consistent style across Genesis codebase"
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Genesis_Source_Files
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Style_Consistency)
+            }
+        }
+        Manifest (on Resonance > 0.95) {
+            Execute: Vessel.Formatter.normalize_indentation()
+        }
+    }
+}
+```
+
+## Ouroboros Evolution Pattern
+
+The Ouroboros pattern enables controlled self-modification:
+
+```genesis
+# The six phases of self-evolution
+# 1. Observe → 2. Propose → 3. Deliberate → 4. Validate → 5. Integrate → 6. Reflect
+# Results feed back to Observe, creating an eternal improvement cycle
+
+# Safety: All evolution is bounded by Covenants with Threshold: 1.0
+Covenant "Essence_Preservation" {
+    Invariant: "Evolution must preserve the five axioms and human wisdom"
+    Threshold: 1.0
+}
+```
+
+See `examples/ouroboros/self-evolution-loop.gen` for the complete pattern.
