@@ -1,12 +1,26 @@
 ---
 name: genesis-meta-programming
 description: Write Genesis programs that generate, analyze, transform, and validate other Genesis programs - meta-level programming capabilities
+self_learning: true
+knowledge_base: .github/knowledge/genesis-meta-programming
 license: MIT
 ---
 
 # Genesis Meta-Programming
 
 Write Genesis programs that operate on other Genesis programs - enabling code generation, transformation, analysis, and validation at the meta level.
+
+## Self-Learning Capabilities
+
+This skill implements the Ouroboros evolution pattern and learns from each usage:
+
+- **Performance Tracking**: All invocations are tracked in `.github/knowledge/genesis-meta-programming/metrics.yaml`
+- **Pattern Learning**: Effective usage patterns are accumulated in `learnings.yaml`
+- **Evolution Log**: Self-modifications are recorded in `evolution-log.yaml`
+- **Context Awareness**: Usage contexts guide future improvements in `context.yaml`
+
+The skill evolves through cycles defined in `.github/evolution/skill-evolution.gen`, continuously refining its instructions and examples based on real-world usage.
+
 
 ## Purpose
 

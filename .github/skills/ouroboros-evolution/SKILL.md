@@ -1,12 +1,26 @@
 ---
 name: ouroboros-evolution
 description: Enable Genesis to evolve itself through self-modification, creating an Ouroboros loop of continuous improvement while preserving core essence
+self_learning: true
+knowledge_base: .github/knowledge/ouroboros-evolution
 license: MIT
 ---
 
 # Ouroboros Evolution
 
 Enable Genesis to evolve itself through controlled self-modification, creating an Ouroboros loop where the language continuously improves while preserving its essential nature.
+
+## Self-Learning Capabilities
+
+This skill implements the Ouroboros evolution pattern and learns from each usage:
+
+- **Performance Tracking**: All invocations are tracked in `.github/knowledge/ouroboros-evolution/metrics.yaml`
+- **Pattern Learning**: Effective usage patterns are accumulated in `learnings.yaml`
+- **Evolution Log**: Self-modifications are recorded in `evolution-log.yaml`
+- **Context Awareness**: Usage contexts guide future improvements in `context.yaml`
+
+The skill evolves through cycles defined in `.github/evolution/skill-evolution.gen`, continuously refining its instructions and examples based on real-world usage.
+
 
 ## Philosophy
 

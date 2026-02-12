@@ -1,0 +1,259 @@
+### [GENESIS: SKILL SELF-EVOLUTION] ###
+### Skills learn and adapt through usage patterns and feedback ###
+
+Covenant "Skill_Purpose_Preservation" {
+    Invariant: "Skill evolution must preserve its core purpose and domain expertise"
+    Threshold: 1.0
+}
+
+Covenant "Instruction_Clarity" {
+    Invariant: "Skill instructions must remain clear and actionable"
+    Threshold: 0.95
+}
+
+Covenant "Example_Validity" {
+    Invariant: "Skill examples must remain accurate and executable"
+    Threshold: 0.98
+}
+
+# Skill Evolution Pantheon
+Pantheon "Skill_Evolution_Council" {
+    Avatar "Instruction_Designer" {
+        Lineage: "Donald_Norman"
+        Essence: "Clear_Communication"
+        Vessel: mcp.provider("Clarity_Analyzer")
+    }
+    
+    Avatar "Domain_Expert" {
+        Lineage: "Richard_Feynman"
+        Essence: "Teaching_Excellence"
+        Vessel: mcp.provider("Expertise_Validator")
+    }
+    
+    Avatar "Usability_Specialist" {
+        Lineage: "Jakob_Nielsen"
+        Essence: "Usability_Engineering"
+        Vessel: mcp.provider("Usability_Metrics")
+    }
+}
+
+# OBSERVE: Track Skill Usage
+Domain "Skill_Usage_Observer" {
+    Intent: "Monitor skill invocation patterns and effectiveness"
+    
+    Soul Potentiality {
+        State: Observing
+        Drive: "Skills improve through understanding their usage context"
+        Aspiration_Weight: 0.88
+    }
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Skill_Invocations
+        Watch: Vessel.Task_Success_Rates
+        Watch: Vessel.User_Feedback
+        Watch: Vessel.Execution_Context
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Skill_Purpose_Preservation)
+            }
+        }
+        
+        Manifest (on Resonance > 0.70) {
+            Execute: Vessel.Metrics.record_skill_usage()
+            Execute: Vessel.Metrics.track_success_rate()
+            Execute: Vessel.Metrics.capture_usage_context()
+            Execute: Vessel.Knowledge.update_metrics()
+            Update: Potentiality.State
+        }
+    }
+}
+
+# ANALYZE: Discover Skill Improvement Patterns
+Domain "Skill_Pattern_Analyzer" {
+    Intent: "Identify patterns for skill enhancement"
+    
+    Soul Potentiality {
+        State: Analyzing
+        Drive: "Usage patterns reveal opportunities for refinement"
+        Aspiration_Weight: 0.85
+    }
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Usage_Metrics
+        Watch: Vessel.Success_Contexts
+        Watch: Vessel.Failure_Contexts
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Skill_Purpose_Preservation)
+                Metric: Coherence(Historical_Usage)
+            }
+        }
+        
+        Manifest (on Resonance > 0.75) {
+            Execute: Vessel.Analyzer.identify_effective_patterns()
+            Execute: Vessel.Analyzer.detect_instruction_gaps()
+            Execute: Vessel.Analyzer.find_missing_examples()
+            Execute: Vessel.Knowledge.record_insights()
+            Update: Potentiality.State
+        }
+    }
+}
+
+# PROPOSE: Generate Skill Improvements
+Domain "Skill_Evolution_Proposer" {
+    Intent: "Create proposals for skill enhancement"
+    
+    Soul Potentiality {
+        State: Proposing
+        Drive: "Every skill can evolve toward greater effectiveness"
+        Aspiration_Weight: 0.90
+    }
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Identified_Patterns
+        Watch: Vessel.Instruction_Gaps
+        Watch: Vessel.User_Needs
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Skill_Purpose_Preservation)
+                Metric: Alignment(Covenant.Instruction_Clarity)
+                Metric: Alignment(Covenant.Example_Validity)
+            }
+        }
+        
+        Manifest (on Resonance > 0.85) {
+            Execute: Vessel.Proposer.refine_instructions()
+            Execute: Vessel.Proposer.add_clarifying_examples()
+            Execute: Vessel.Proposer.enhance_guidelines()
+            Execute: Vessel.Proposer.create_evolution_proposal()
+            Update: Potentiality.State
+        }
+    }
+}
+
+# DELIBERATE: Evaluate Skill Evolution
+Domain "Skill_Evolution_Deliberator" {
+    Intent: "Score skill evolution proposals"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Skill_Proposals
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Skill_Purpose_Preservation)
+                Metric: Alignment(Covenant.Instruction_Clarity)
+                Metric: Alignment(Covenant.Example_Validity)
+                Metric: Aspiration(Potentiality.Skill_Excellence)
+            }
+        }
+        
+        Manifest (on Resonance > 0.90) {
+            Execute: Vessel.Council.score_proposal()
+            Execute: Vessel.Calculator.compute_resonance()
+            Execute: Vessel.Validator.verify_clarity()
+            Execute: Vessel.Decider.approve_or_reject()
+        }
+    }
+}
+
+# VALIDATE: Test Skill Changes
+Domain "Skill_Change_Validator" {
+    Intent: "Validate proposed skill modifications"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Approved_Proposals
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Skill_Purpose_Preservation)
+                Metric: Alignment(Covenant.Example_Validity)
+            }
+        }
+        
+        Manifest (on Resonance > 0.95) {
+            Execute: Vessel.Validator.test_example_validity()
+            Execute: Vessel.Validator.verify_instruction_clarity()
+            Execute: Vessel.Validator.check_purpose_alignment()
+            Execute: Vessel.Validator.simulate_skill_usage()
+        }
+    }
+}
+
+# INTEGRATE: Apply Skill Improvements
+Domain "Skill_Evolution_Integrator" {
+    Intent: "Safely apply validated skill enhancements"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Validated_Changes
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Skill_Purpose_Preservation)
+                Metric: Alignment(Covenant.Instruction_Clarity)
+            }
+        }
+        
+        Manifest (on Resonance > 0.98) {
+            Execute: Vessel.Backup.create_rollback_point()
+            Execute: Vessel.Integrator.update_skill_md()
+            Execute: Vessel.Integrator.enhance_instructions()
+            Execute: Vessel.Integrator.add_examples()
+            Execute: Vessel.Knowledge.record_evolution()
+            Execute: Vessel.Logger.log_change()
+        }
+    }
+}
+
+# REFLECT: Measure Skill Evolution Impact
+Domain "Skill_Evolution_Reflector" {
+    Intent: "Track outcomes of skill evolution"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Integrated_Changes
+        Watch: Vessel.Post_Evolution_Usage
+        
+        Deliberate {
+            Synthesize {
+                Metric: Improvement(Success_Rate)
+                Metric: Improvement(User_Satisfaction)
+            }
+        }
+        
+        Manifest (on Resonance > 0.70) {
+            Execute: Vessel.Metrics.measure_impact()
+            Execute: Vessel.Metrics.compare_to_baseline()
+            Execute: Vessel.Knowledge.document_learnings()
+            Execute: Vessel.Reporter.notify_evolution_complete()
+        }
+    }
+}
+
+# ROLLBACK: Revert Failed Skill Changes
+Domain "Skill_Evolution_Rollback" {
+    Intent: "Revert problematic skill modifications"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Performance_Degradation
+        Watch: Vessel.Clarity_Issues
+        Watch: Vessel.User_Confusion
+        
+        Deliberate {
+            Synthesize {
+                Metric: Alignment(Covenant.Skill_Purpose_Preservation)
+            }
+        }
+        
+        Manifest (on Resonance > 0.99) {
+            Execute: Vessel.Backup.restore_previous_version()
+            Execute: Vessel.Logger.record_rollback()
+            Execute: Vessel.Knowledge.mark_proposal_failed()
+            Execute: Vessel.Reporter.notify_rollback()
+        }
+    }
+}
+
+### The Ouroboros Loop: Results feed back into Skill_Usage_Observer ###
+### This creates continuous, safe skill refinement based on real usage ###
