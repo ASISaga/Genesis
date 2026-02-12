@@ -1,12 +1,18 @@
 version: '1.0'
-last_updated: '2026-02-11T23:57:31.119322Z'
+last_updated: '2026-02-12T00:01:15.534293Z'
 entity_type: agent
 metrics:
-  total_invocations: 0
-  success_rate: 0.0
-  average_execution_time: 0.0
+  total_invocations: 3
+  success_rate: 0.6666666666666666
+  average_execution_time: 4.366666666666666
   resonance_scores:
-    mean: 0.0
-    min: 0.0
-    max: 0.0
-  task_categories: []
+    mean: 0.8733333333333333
+    min: 0.72
+    max: 0.96
+  task_categories:
+  - category: code_review
+    count: 2
+    success_rate: 0.5
+  - category: covenant_validation
+    count: 1
+    success_rate: 1.0

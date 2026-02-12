@@ -1,12 +1,26 @@
 ---
 name: genesis-dogfooding
 description: Use Genesis language to describe, analyze, and improve Genesis itself - meta-programming for self-improvement and validation
+self_learning: true
+knowledge_base: .github/knowledge/genesis-dogfooding
 license: MIT
 ---
 
 # Genesis Dogfooding
 
 Use Genesis language to describe, analyze, and improve Genesis itself through meta-programming.
+
+## Self-Learning Capabilities
+
+This skill implements the Ouroboros evolution pattern and learns from each usage:
+
+- **Performance Tracking**: All invocations are tracked in `.github/knowledge/genesis-dogfooding/metrics.yaml`
+- **Pattern Learning**: Effective usage patterns are accumulated in `learnings.yaml`
+- **Evolution Log**: Self-modifications are recorded in `evolution-log.yaml`
+- **Context Awareness**: Usage contexts guide future improvements in `context.yaml`
+
+The skill evolves through cycles defined in `.github/evolution/skill-evolution.gen`, continuously refining its instructions and examples based on real-world usage.
+
 
 ## Purpose
 

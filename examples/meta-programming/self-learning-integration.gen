@@ -1,0 +1,196 @@
+### [GENESIS: SELF-LEARNING SYSTEM INTEGRATION EXAMPLE] ###
+### Demonstrates how agents and skills track their own performance ###
+
+# This is a conceptual example showing how the self-learning system
+# integrates with Genesis agent/skill execution
+
+Covenant "Self_Awareness" {
+    Invariant: "Agents must track their own performance for continuous improvement"
+    Threshold: 0.95
+}
+
+# Pantheon for self-evaluation
+Pantheon "Self_Evaluation_Council" {
+    Avatar "Performance_Analyst" {
+        Lineage: "Peter_Drucker"
+        Essence: "Management_By_Objectives"
+        Vessel: mcp.provider("Performance_Tracker")
+    }
+    
+    Avatar "Quality_Assessor" {
+        Lineage: "W_Edwards_Deming"
+        Essence: "Continuous_Improvement"
+        Vessel: mcp.provider("Quality_Metrics")
+    }
+}
+
+# Example: Agent tracks its own execution
+Domain "Agent_Self_Tracking" {
+    Intent: "Covenant Guardian tracks its own code review performance"
+    
+    Soul Potentiality {
+        State: Active
+        Drive: "Every execution teaches me to be more effective"
+        Aspiration_Weight: 0.92
+    }
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Code_Review_Request
+        
+        Deliberate {
+            # Before execution: Load accumulated knowledge
+            Execute: Vessel.Knowledge.load_patterns()
+            Execute: Vessel.Knowledge.load_context()
+            
+            # Perform the code review
+            Proposal: "Review code for covenant compliance"
+            
+            Synthesize {
+                Metric: Alignment(Covenant.Self_Awareness)
+                Metric: Historical_Success_Rate
+                Metric: Pattern_Match_Confidence
+            }
+        }
+        
+        Manifest (on Resonance > 0.90) {
+            # Execute the review
+            Execute: Vessel.Review.analyze_code()
+            Execute: Vessel.Review.check_covenants()
+            
+            # Track the execution
+            Execute: Vessel.Tracker.record_start_time()
+            Execute: Vessel.Tracker.record_task_category("code_review")
+            
+            # After execution: Record outcomes
+            Execute: Vessel.Tracker.record_success_status()
+            Execute: Vessel.Tracker.record_execution_time()
+            Execute: Vessel.Tracker.record_resonance_score()
+            
+            # Update knowledge base
+            Execute: Vessel.Knowledge.update_metrics()
+            Execute: Vessel.Knowledge.identify_patterns()
+            
+            Update: Potentiality.State
+        }
+    }
+}
+
+# Example: Skill tracks its usage
+Domain "Skill_Self_Tracking" {
+    Intent: "Genesis-Run skill tracks its execution patterns"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Genesis_File_Execution_Request
+        
+        Deliberate {
+            # Load usage patterns
+            Execute: Vessel.Knowledge.load_common_contexts()
+            Execute: Vessel.Knowledge.load_failure_patterns()
+            
+            Proposal: "Execute Genesis program with learned optimizations"
+            
+            Synthesize {
+                Metric: Alignment(Covenant.Self_Awareness)
+                Metric: Context_Familiarity
+            }
+        }
+        
+        Manifest (on Resonance > 0.85) {
+            # Execute with tracking
+            Execute: Vessel.Tracker.record_start()
+            Execute: Vessel.Runner.parse_and_execute()
+            Execute: Vessel.Tracker.record_outcome()
+            
+            # Learn from execution
+            Execute: Vessel.Knowledge.update_success_rate()
+            Execute: Vessel.Knowledge.record_execution_context()
+            
+            # If failure, analyze for patterns
+            Execute: Vessel.Analyzer.identify_failure_cause()
+            Execute: Vessel.Knowledge.record_antipattern()
+        }
+    }
+}
+
+# Evolution trigger based on accumulated knowledge
+Domain "Evolution_Trigger" {
+    Intent: "Trigger self-evolution when sufficient learning has occurred"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Knowledge.Invocation_Count
+        Watch: Vessel.Knowledge.Pattern_Confidence
+        Watch: Vessel.Knowledge.Performance_Delta
+        
+        Deliberate {
+            Proposal: "Initiate evolution cycle if learning threshold reached"
+            
+            Synthesize {
+                Metric: Sufficient_Data(Invocations > 50)
+                Metric: High_Confidence_Patterns(Confidence > 0.85)
+                Metric: Performance_Gap_Identified
+            }
+        }
+        
+        Manifest (on Resonance > 0.92) {
+            # Trigger evolution programs
+            Execute: Vessel.Evolution.run_agent_evolution()
+            Execute: Vessel.Evolution.run_skill_evolution()
+            
+            # Evolution will:
+            # 1. Analyze accumulated patterns
+            # 2. Propose improvements
+            # 3. Validate through pantheon consensus
+            # 4. Integrate if resonance > 0.90
+            # 5. Measure impact
+            # 6. Record in evolution log
+        }
+    }
+}
+
+# Knowledge base reflection
+Domain "Knowledge_Reflection" {
+    Intent: "Periodically review and validate accumulated knowledge"
+    
+    Pulse(Interval: Weekly) {
+        Watch: Vessel.Knowledge.All_Metrics
+        Watch: Vessel.Knowledge.All_Patterns
+        
+        Deliberate {
+            Proposal: "Validate knowledge accuracy and relevance"
+            
+            Synthesize {
+                Metric: Pattern_Validation
+                Metric: Metric_Accuracy
+                Metric: Knowledge_Freshness
+            }
+        }
+        
+        Manifest (on Resonance > 0.80) {
+            # Clean outdated knowledge
+            Execute: Vessel.Knowledge.remove_invalidated_patterns()
+            Execute: Vessel.Knowledge.update_confidence_scores()
+            
+            # Generate insights
+            Execute: Vessel.Analyzer.identify_trends()
+            Execute: Vessel.Analyzer.cross_agent_learning()
+            
+            # Report
+            Execute: Vessel.Reporter.generate_evolution_report()
+            Execute: Vessel.Logger.log_knowledge_state()
+        }
+    }
+}
+
+### Integration Points ###
+# 1. Every agent/skill invocation records metrics automatically
+# 2. Knowledge accumulates in .github/knowledge/<entity>/
+# 3. Evolution cycles analyze patterns and propose improvements
+# 4. Changes require high resonance scores (>0.90) for integration
+# 5. Impact is measured and fed back into the learning loop
+# 6. The Ouroboros cycle continues perpetually
+
+### Key Files ###
+# - .github/evolution/agent-evolution.gen - Agent evolution logic
+# - .github/evolution/skill-evolution.gen - Skill evolution logic
+# - .github/evolution/evolution-tracker.py - Metrics tracking utility
+# - .github/knowledge/<entity>/ - Knowledge base for each entity
