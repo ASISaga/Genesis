@@ -15,19 +15,19 @@ Pantheon "Research_Collective" {
         Essence: "Unified_Understanding"
         Vessel: mcp.provider("Physics_Database")
     }
-    
+
     Avatar "Empiricist" {
         Lineage: "Marie_Curie"
         Essence: "Experimental_Rigor"
         Vessel: mcp.provider("Lab_Data_Systems")
     }
-    
+
     Avatar "Synthesizer" {
         Lineage: "Leonardo_da_Vinci"
         Essence: "Cross_Disciplinary_Insight"
         Vessel: mcp.provider("Knowledge_Graph")
     }
-    
+
     Avatar "Communicator" {
         Lineage: "Carl_Sagan"
         Essence: "Universal_Accessibility"
@@ -37,7 +37,7 @@ Pantheon "Research_Collective" {
 
 Domain "Quantum_Biology_Frontier" {
     Intent: "Discover quantum effects in biological systems"
-    
+
     Soul Potentiality {
         State: Dreaming
         Drive: "Impossible connections that prove possible"
@@ -50,7 +50,7 @@ Domain "Quantum_Biology_Frontier" {
         Watch: Vessel.Quantum_Physics_Papers
         Watch: Vessel.Molecular_Biology_Research
         Watch: Vessel.Clinical_Trial_Data
-        
+
         Deliberate {
             # Pattern recognition across domains
             Analysis: Vessel.Knowledge_Graph.find_correlations({
@@ -58,24 +58,21 @@ Domain "Quantum_Biology_Frontier" {
                 domain_2: "photosynthesis",
                 domain_3: "avian_navigation"
             })
-            
+
             # Generate hypotheses
             Proposal "Quantum_Photosynthesis" {
                 Hypothesis: "Quantum coherence enables near-perfect energy transfer in photosynthetic complexes"
                 Evidence_Level: Emerging
                 Testability: High
             }
-            
+
             # Evaluate through expert lenses
             Synthesize {
-                Metric: Theoretical_Soundness(Theorist.Aura)
-                Metric: Experimental_Feasibility(Empiricist.Aura)
-                Metric: Novelty_Impact(Synthesizer.Aura)
-                Metric: Communicability(Communicator.Aura)
-                Metric: Paradigm_Shift_Potential(Potentiality.Aspiration)
+                Metric: Alignment(Covenant.Scientific_Integrity)
+                Metric: Aspiration(Potentiality.Dream_Cycle)
             }
         }
-        
+
         Manifest (on Resonance > 0.94) {
             # Publish findings
             Execute: Vessel.Publication_System.draft_paper({
@@ -83,20 +80,19 @@ Domain "Quantum_Biology_Frontier" {
                 supporting_evidence: Analysis.Results,
                 proposed_experiments: Empiricist.Suggestions
             })
-            
+
             # Design experiments
             Execute: Vessel.Lab_Systems.design_validation_protocol()
-            
+
             # Update understanding
-            Update: Pantheon.Collective_Knowledge
             Update: Potentiality.State -> "Manifesting"
         }
     }
-    
-    # Continuous learning mechanism
-    Decree "Knowledge_Integration" {
-        Condition: New_Experimental_Data.Available
-        Action: "Re-evaluate hypotheses with updated evidence"
-        Constraint: "Preserve intellectual honesty (Covenant.Scientific_Integrity)"
-    }
+}
+
+# Continuous learning mechanism
+Decree "Knowledge_Integration" {
+    Condition: New_Experimental_Data.Available
+    Action: "Re-evaluate hypotheses with updated evidence"
+    Constraint: "Preserve intellectual honesty (Covenant.Scientific_Integrity)"
 }
