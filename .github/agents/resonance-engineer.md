@@ -63,3 +63,9 @@ The agent evolves through cycles defined in `.github/evolution/agent-evolution.g
 - `tools/genesis_repl.py` — Interactive REPL
 - `tools/genesis_fmt.py` — Code formatter (4-space indent standard)
 - `tools/genesis_lint.py` — Static analyzer
+
+## Dogfooding & Ouroboros
+
+- **Tools are dogfooded**: Each tool has a Genesis Domain declaration in `examples/meta-programming/genesis-tools-dogfooding.gen`. Keep these in sync when modifying tool behavior.
+- **Development lifecycle**: Implementation changes should follow the lifecycle declared in `examples/meta-programming/genesis-development-lifecycle.gen`.
+- **Self-learning**: Runtime performance metrics feed into the Ouroboros cycle through `.github/knowledge/resonance-engineer/`.

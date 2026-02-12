@@ -58,3 +58,9 @@ The agent evolves through cycles defined in `.github/evolution/agent-evolution.g
 - `spec/inception-inscription.md` — First Genesis program
 - `src/genesis_parser.py` — Lexer, Parser, AST node definitions
 - `docs/philosophy/` — Core philosophical foundations
+
+## Dogfooding & Ouroboros
+
+- **Language changes follow the Ouroboros cycle**: Observe → Propose → Deliberate → Validate → Integrate → Reflect. See `examples/ouroboros/self-evolution-loop.gen` for the canonical pattern.
+- **Express proposals in Genesis**: All language evolution proposals should be expressed as Genesis programs before implementation. See `.github/evolution/evolution-covenants.gen` for safety boundaries.
+- **Dogfood grammar extensions**: When adding new constructs, create a `.gen` example that uses them alongside the grammar update.

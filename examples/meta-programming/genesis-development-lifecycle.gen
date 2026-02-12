@@ -65,10 +65,6 @@ Domain "Design_Phase" {
         Watch: Vessel.Evolution_Needs
 
         Deliberate {
-            Proposal "Feature_Design" {
-                Action: "Draft grammar extension with philosophical grounding"
-                Priority: High
-            }
             Synthesize {
                 Metric: Alignment(Covenant.Philosophical_Integrity)
                 Metric: Aspiration(Potentiality.Infinite)
@@ -180,11 +176,7 @@ Domain "Evolution_Phase" {
             Execute: Vessel.Metrics.record_outcomes()
             Execute: Vessel.Knowledge.update_learnings()
             Execute: Vessel.Evolution.propose_improvements()
-
-            Reflect {
-                Outcome: Vessel.Analytics.measure_development_velocity()
-                Integrate: Learning -> Pantheon.Collective_Wisdom
-            }
+            Update: Potentiality.State
         }
     }
 }
