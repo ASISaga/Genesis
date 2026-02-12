@@ -1,6 +1,6 @@
 ### [GENESIS: DOGFOODING EXAMPLE] ###
 ### Genesis describing its own tools through declarative programming ###
-### Every Genesis tool is expressed as a Domain with Covenants and Pulse cycles ###
+### Every Genesis tool is expressed as a Domain with covenants and Pulse cycles ###
 
 # Covenants for tool quality
 Covenant "Tool_Correctness" {
