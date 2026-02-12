@@ -52,21 +52,18 @@ Domain "Smart_Grid_Management" {
             
             # Generate proposals
             Proposal "Solar_Shift" {
-                Action: "Route excess solar to storage"
+                Strategy: "Route excess solar to storage"
                 Priority: High
             }
             
             Proposal "Demand_Balance" {
-                Action: "Incentivize off-peak usage"
+                Strategy: "Incentivize off-peak usage"
                 Priority: Medium
             }
             
             # Synthesize through pantheon wisdom
             Synthesize {
                 Metric: Alignment(Covenant.Ecological_Balance)
-                Metric: Economic_Viability(Economist.Aura)
-                Metric: Technical_Feasibility(Innovator.Aura)
-                Metric: Environmental_Impact(Ecologist.Aura)
                 Metric: Aspiration(Potentiality.Dream_Cycle)
             }
         }
@@ -76,21 +73,13 @@ Domain "Smart_Grid_Management" {
             # The AOS selects the highest-scoring proposal from Deliberate block
             # and executes it through the appropriate vessel
             Execute: Vessel.Grid_Control.implement_top_proposal()
-            Log: Resonance_Score
             Update: Potentiality.State
-            
-            # Learn and evolve
-            Reflect {
-                Outcome: Vessel.Grid_Monitor.measure_impact()
-                Integrate: Learning -> Pantheon.Collective_Wisdom
-            }
         }
     }
-    
-    # Emergency override protocol
-    Decree "Grid_Stability" {
-        Condition: Grid.Load_Factor > 0.95
-        Action: "Activate emergency reserves"
-        Override_Threshold: 0.99
-    }
+}
+
+# Emergency override protocol
+Decree "Grid_Stability" {
+    Condition: Grid.Load_Factor > 0.95
+    Action: "Activate emergency reserves"
 }

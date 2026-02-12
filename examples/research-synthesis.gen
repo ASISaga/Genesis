@@ -68,11 +68,8 @@ Domain "Quantum_Biology_Frontier" {
             
             # Evaluate through expert lenses
             Synthesize {
-                Metric: Theoretical_Soundness(Theorist.Aura)
-                Metric: Experimental_Feasibility(Empiricist.Aura)
-                Metric: Novelty_Impact(Synthesizer.Aura)
-                Metric: Communicability(Communicator.Aura)
-                Metric: Paradigm_Shift_Potential(Potentiality.Aspiration)
+                Metric: Alignment(Covenant.Scientific_Integrity)
+                Metric: Aspiration(Potentiality.Dream_Cycle)
             }
         }
         
@@ -88,15 +85,14 @@ Domain "Quantum_Biology_Frontier" {
             Execute: Vessel.Lab_Systems.design_validation_protocol()
             
             # Update understanding
-            Update: Pantheon.Collective_Knowledge
             Update: Potentiality.State -> "Manifesting"
         }
     }
-    
-    # Continuous learning mechanism
-    Decree "Knowledge_Integration" {
-        Condition: New_Experimental_Data.Available
-        Action: "Re-evaluate hypotheses with updated evidence"
-        Constraint: "Preserve intellectual honesty (Covenant.Scientific_Integrity)"
-    }
+}
+
+# Continuous learning mechanism
+Decree "Knowledge_Integration" {
+    Condition: New_Experimental_Data.Available
+    Action: "Re-evaluate hypotheses with updated evidence"
+    Constraint: "Preserve intellectual honesty (Covenant.Scientific_Integrity)"
 }
