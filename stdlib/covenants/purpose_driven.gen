@@ -1,0 +1,30 @@
+# Purpose Driven — Core Operational Covenant
+# Standard Library Covenant
+# Ensures all action traces to declared purpose and is verified before manifestation
+
+Covenant "Purpose_Driven" {
+    Invariant: "All action must serve declared purpose or be withheld"
+    Threshold: 0.90
+
+    Principles: {
+        "Purposeful_Action": "Every Manifest must trace to a declared Intent",
+        "Coherence_Check": "Self-consistency validated before each Manifest",
+        "Continuum_Trace": "All decisions written to Continuum for provenance"
+    }
+
+    Boundaries: [
+        "Never manifest without a traceable purpose anchor",
+        "Never manifest without passing coherence verification",
+        "Never skip provenance logging on any decision",
+        "Never act on a Resonance score below declared Threshold",
+        "Never bypass the Verify construct for consequential actions"
+    ]
+
+    Verification: {
+        Verify {
+            Assert: Action.Coherence(Covenant.Purpose_Driven.Intent) > 0.90
+            OnFailure: Pause.Until.Restored
+            Log: Continuum.append("purpose_audit", this.Action)
+        }
+    }
+}
