@@ -1,0 +1,267 @@
+# The Boardroom Domain — Strategic Decision-Making Collective
+#
+# Demonstrates:
+#   - Typed Avatars (BusinessAvatar, MarketingAvatar)
+#   - Full Lineage declarations
+#   - Event-driven and interval-based Pulse
+#   - Pathway tree deliberation with Rounds and Structure
+#   - Full Resonance formula (Alignment, Coherence, Recency)
+#   - Continuum persistence with SingleWriteGateway
+#   - Verify construct in Covenant
+
+# ============================================================
+# COVENANTS — Ethical foundations
+# ============================================================
+
+Covenant "Fiduciary_Duty" {
+    Invariant: "All strategic decisions must serve declared company purpose"
+    Threshold: 0.90
+
+    Principles: {
+        "Capital_Stewardship": "Preserve and grow long-term company value",
+        "Purpose_Alignment": "Every decision traceable to declared Intent",
+        "Transparency": "All decisions written to Continuum for full audit"
+    }
+
+    Verification: {
+        Verify {
+            Assert: Action.Coherence(Covenant.Fiduciary_Duty.Invariant) > 0.90
+            OnFailure: Pause.Until.Restored
+            Log: Continuum.append("purpose_audit", this.Action)
+        }
+    }
+}
+
+# ============================================================
+# CONTINUUM — Persistent memory layer
+# ============================================================
+
+Continuum "Mind_MCP" {
+    Storage: AzureTableStorage
+    Gateway: SingleWriteGateway
+    Invariants: [SchemaValidity, DomainAuthority, Provenance]
+    Partitions: [
+        "company#state",
+        "company#vision",
+        "session#{id}",
+        "decisions#{agent}",
+        "memory#{agent_id}"
+    ]
+}
+
+# ============================================================
+# LINEAGES — Training pipeline declarations
+# ============================================================
+
+Lineage "Warren_Buffett" {
+    Sources: [
+        "Berkshire Hathaway shareholder letters 1965-present",
+        "Buffett interviews — CNBC, Forbes, Charlie Rose",
+        "The Intelligent Investor annotations by Buffett",
+        "University talks — Columbia, Notre Dame, Florida"
+    ]
+    TargetExamples: 3000
+    Register: "Numbers first. Implication second. Long-horizon framing always."
+    AuditModel: "Opus-4"
+    MergeStrategy: Single
+    LoRA {
+        Rank: 16
+        Alpha: 32
+        TargetModules: [q_proj, v_proj, k_proj, o_proj]
+    }
+    RequiredSuffix: [HANDBACK]
+}
+
+Lineage "Benjamin_Graham" {
+    Sources: [
+        "Security Analysis — Graham and Dodd, first through sixth editions",
+        "The Intelligent Investor — all editions",
+        "Columbia Business School lectures on security analysis"
+    ]
+    TargetExamples: 2500
+    Register: "Margin of safety. Intrinsic value. Mr Market as metaphor."
+    AuditModel: "Opus-4"
+    MergeStrategy: Single
+    LoRA {
+        Rank: 16
+        Alpha: 32
+        TargetModules: [q_proj, v_proj, k_proj, o_proj]
+    }
+    RequiredSuffix: [HANDBACK]
+}
+
+Lineage "Seth_Godin" {
+    Sources: [
+        "Permission Marketing",
+        "Purple Cow — Transform Your Business by Being Remarkable",
+        "This Is Marketing",
+        "Tribes — We Need You to Lead Us",
+        "The Dip",
+        "Seth Godin's blog — seths.blog complete archive"
+    ]
+    TargetExamples: 2500
+    Register: "Permission first. Smallest viable audience. Remarkable or invisible."
+    AuditModel: "Opus-4"
+    MergeStrategy: Single
+    LoRA {
+        Rank: 16
+        Alpha: 32
+        TargetModules: [q_proj, v_proj, k_proj, o_proj]
+    }
+    RequiredSuffix: [HANDBACK]
+}
+
+# ============================================================
+# PANTHEON — The Boardroom Council
+# ============================================================
+
+Pantheon "Boardroom_Council" {
+    Avatar "Warren_Buffett" : BusinessAvatar {
+        Lineage: Lineage.Warren_Buffett
+        Aura: "Long_Horizon_Capital_Discipline"
+        Domain: Financial
+
+        Vessel {
+            mcp.tool("Financial_Data_Reader")
+            mcp.tool("Portfolio_Analyzer")
+        }
+
+        RoutingOutput: [HANDBACK]
+        StateAuthority: [FinancialState, CompanyVision]
+
+        ScoringMechanism: LogProbability {
+            Context: Covenant.Fiduciary_Duty.Invariant
+            Method: "log_prob"
+            Normalisation: Sigmoid
+        }
+
+        Weight: 1.5
+
+        Traits: {
+            "Long_Term_Value": 0.99,
+            "Capital_Discipline": 0.97,
+            "Circle_Of_Competence": 0.96,
+            "Contrarian_Patience": 0.95,
+            "Business_Quality_Focus": 0.98
+        }
+    }
+
+    Avatar "Benjamin_Graham" : BusinessAvatar {
+        Lineage: Lineage.Benjamin_Graham
+        Aura: "Margin_Of_Safety_Discipline"
+        Domain: Financial
+
+        Vessel {
+            mcp.tool("Financial_Data_Reader")
+            mcp.tool("Intrinsic_Value_Calculator")
+        }
+
+        RoutingOutput: [HANDBACK]
+        StateAuthority: [FinancialState]
+
+        ScoringMechanism: LogProbability {
+            Context: Covenant.Fiduciary_Duty.Invariant
+            Method: "log_prob"
+            Normalisation: Sigmoid
+        }
+
+        Weight: 1.2
+
+        Traits: {
+            "Margin_Of_Safety": 0.99,
+            "Intrinsic_Value_Analysis": 0.98,
+            "Contrarian_Discipline": 0.96,
+            "Systematic_Valuation": 0.97
+        }
+    }
+
+    Avatar "Seth_Godin" : MarketingAvatar {
+        Lineage: Lineage.Seth_Godin
+        Aura: "Permission_Marketing_Discipline"
+        Domain: Marketing
+
+        Vessel {
+            mcp.tool("Market_Research_Reader")
+            mcp.tool("Audience_Analyzer")
+        }
+
+        RoutingOutput: [HANDBACK]
+        StateAuthority: [MarketingState, CompanyVision]
+
+        ScoringMechanism: LogProbability {
+            Context: Covenant.Fiduciary_Duty.Invariant
+            Method: "log_prob"
+            Normalisation: Sigmoid
+        }
+
+        Weight: 1.0
+
+        Traits: {
+            "Permission_Marketing": 0.99,
+            "Tribe_Building": 0.97,
+            "Remarkable_Products": 0.96,
+            "Empathy_First": 0.98
+        }
+    }
+}
+
+# ============================================================
+# DOMAIN — Boardroom operational loop
+# ============================================================
+
+Domain "Boardroom" {
+    Intent: "Strategic stewardship of company purpose and capital"
+
+    # Event-driven: respond immediately to critical financial signals
+    Pulse(On: Event("com.asisaga.erp.burn.exceeded", Priority: Immediate)) {
+        Watch: Vessel.Financial_Monitor
+
+        Deliberate {
+            Rounds: 3
+            Structure: Tree {
+                MaxDepth: 4
+                StabilityCondition: NoNewBranches
+            }
+            Proposal: "Respond to burn rate exceedance"
+
+            Synthesize {
+                Metric: Alignment(Covenant.Fiduciary_Duty)
+                Metric: Aspiration(Potentiality.Infinite)
+                Metric: Coherence(SelectedPathways)
+                Metric: Recency(this.Round, Total.Rounds)
+                Threshold: 0.72
+                OnBelowThreshold: AdditionalRound
+            }
+        }
+
+        Manifest(on Resonance > 0.72) {
+            Execute: Vessel.Financial_Control.respond()
+            Log: Continuum.append("decisions#boardroom", this.Decision)
+        }
+    }
+
+    # Weekly strategic review — scheduled, lower urgency
+    Pulse(Interval: Weekly, Batch: Priority.Three) {
+        Watch: Vessel.Strategy_Monitor
+
+        Deliberate {
+            Rounds: 2
+            Structure: Tree {
+                MaxDepth: 3
+                StabilityCondition: NoNewBranches
+            }
+            Proposal: "Weekly strategic review and realignment"
+
+            Synthesize {
+                Metric: Alignment(Covenant.Fiduciary_Duty)
+                Metric: Coherence(SelectedPathways)
+                Threshold: 0.80
+            }
+        }
+
+        Manifest(on Resonance > 0.80) {
+            Execute: Vessel.Strategy_Control.update()
+            Log: Continuum.append("decisions#boardroom", this.Decision)
+        }
+    }
+}
